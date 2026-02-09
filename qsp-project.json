@@ -1,0 +1,14 @@
+{
+	"project":
+	[
+		{
+			"module":".\\game\\merphy_law.qsp",
+			"folders":[{"path":".\\_src"}],
+			"start_qsploc_file": ".\\_src\\00_launch\\[0.0_launcher].qsps"
+		}
+	],
+	"player": "C:\\Users\\aleks\\AppData\\Local\\qSpider\\qspider.exe",
+	"save_txt2gam": false,
+	"preprocessor": "On",
+	"start":".\\game\\merphy_law.qsp"
+}

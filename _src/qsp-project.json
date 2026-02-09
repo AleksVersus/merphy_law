@@ -1,0 +1,13 @@
+{
+    "project":
+    [
+        {
+            "module":"..\\game\\merphy_law.qsp",
+            "folders":[{"path":"."}],
+            "start_qsploc_file": ".\\00_launch\\[0.0_launcher].qsps"
+        }
+    ],
+    "player":"..\\..\\..\\..\\QSP 590 QG 410b\\qspgui.exe",
+    "preprocessor": "On",
+    "start":"..\\game\\merphy_law.qsp"
+}

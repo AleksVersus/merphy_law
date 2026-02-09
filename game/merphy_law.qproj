@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<QGen-project version="4.0.0 beta 1">
+<QGen-project version="4.2.0">
   <Structure>
     <Location name="[launcher]"/>
     <Location name="[start]"/>
@@ -91,8 +91,6 @@
     </Folder>
     <Folder name="работа с аохранениями">
       <Location name="save.checkpoint.load"/>
-      <Location name="save.quickload"/>
-      <Location name="save.quicksave"/>
       <Location name="-"/>
       <Location name="avs.save"/>
       <Location name="avs.sets"/>
@@ -797,58 +795,16 @@
       <Location name="page.665"/>
     </Folder>
     <Folder name="easy.math">
-      <Location name="#coords.get#"/>
-      <Location name="kill.var.olegus"/>
       <Location name="get.tag.cont"/>
       <Location name="get.tag.num"/>
       <Location name="get.word.inPos"/>
-      <Location name="#array.ins#"/>
-      <Location name="#array.srch#"/>
-      <Location name="#array.strt#"/>
       <Location name="#array.clr#"/>
       <Location name="#array.simp#"/>
-      <Location name="#array.dsrt#"/>
-      <Location name="#array.rstd#"/>
       <Location name="#array.sort#"/>
-      <Location name="#array.prnt.few#"/>
       <Location name="#array.prnt#"/>
-      <Location name="#array.rand#"/>
-      <Location name="#rtp#"/>
-      <Location name="#hash#"/>
-      <Location name="#dev#"/>
-      <Location name="#add#"/>
-      <Location name="#str.thin#"/>
-      <Location name="#widetrim#"/>
       <Location name="#str.inArray#"/>
-      <Location name="!easy.math!"/>
-      <Location name="!--test--!"/>
-      <Location name="#even#"/>
-      <Location name="#sum#"/>
-      <Location name="#raz#"/>
-      <Location name="#^#"/>
-      <Location name="#-#"/>
-      <Location name="#hex-dec#"/>
-      <Location name="#dec-hex#"/>
-      <Location name="#dec-col#"/>
-      <Location name="#col-rgb#"/>
-      <Location name="#col-inv#"/>
-      <Location name="#+col#"/>
-      <Location name="#dz#"/>
-      <Location name="#indiv#"/>
-      <Location name="#undiv#"/>
-      <Location name="#razdiv#"/>
-      <Location name="#rounddiv#"/>
-      <Location name="#+#"/>
-      <Location name="#*#"/>
-      <Location name="#sim#"/>
-      <Location name="#sqrt#"/>
-      <Location name="#invert#"/>
-      <Location name="#:#"/>
       <Location name="#zero#"/>
       <Location name="#rndstr#"/>
-      <Location name="#re.rgb#"/>
-      <Location name="#chk.obj.word#"/>
-      <Location name="#chk.array.word#"/>
     </Folder>
   </Structure>
 </QGen-project>

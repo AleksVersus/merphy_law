@@ -9,5 +9,6 @@
 	{
 		"theme": "Adaptive.sublime-theme",
 		"word_wrap": "true",
+		"rulers": [[100, "dotted", 1]],
 	},
 }
