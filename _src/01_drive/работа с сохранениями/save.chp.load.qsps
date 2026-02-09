@@ -1,4 +1,4 @@
 QSP-Game загрузка чекпоинта
 # save.checkpoint.load
 gosub 'avs.save',4
-- save.checkpoint.load -
+-- save.checkpoint.load -
