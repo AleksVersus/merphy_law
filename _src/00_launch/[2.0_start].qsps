@@ -1,10 +1,10 @@
 QSP-Game самая первая локация. Здесь может быть заставка или вступительное слово
 # [start]
-gosub 'set.newgame','kill'	& !@ выставляем настройки по-умолчанию. !!! НУЖНО ЛИ???
+gosub 'set.newgame','kill'	& !@ выставляем настройки по-умолчанию. !!! TODO: НУЖНО ЛИ???
 $GAME_VALUE['interface']=''	& !@ установки интерфейса. Пустое значение: текст игры без доп элементов интерфейса.
 $save['game.number']=$func('#rndstr#',4,'буквы и цифры') & !@ генерим уникальный номер игры
 !@ разделяем типы, чтобы не заморачиваться с функциями instr
-if instr($AVS_PLAYERTYPE,"[MINI]")<>0: $AVS_PLAYERTYPE['size']="MINI" else $AVS_PLAYERTYPE['size']=""
+$AVS_PLAYERTYPE['size'] = $iif(instr($AVS_PLAYERTYPE,"[MINI]")<>0, "MINI", "")
 if instr($AVS_PLAYERTYPE,"[qSpider]")<>0:
 	!@ inclib 'qSpider'
 	$AVS_PLAYERTYPE['type'] = 'qSpider'	& !@ qSpider

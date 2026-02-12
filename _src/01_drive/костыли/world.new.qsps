@@ -12,6 +12,7 @@ if arrsize('$temp_id')>0:
 	killvar '$temp_id',0
 	jump 'for_gate'
 end
+!!! TODO: ВЫГЛЯДИТ слишком сложно. Возможно стоит переделать.
 killvar '$temp_id'
 $new_world[]='178'
 $new_world[]='290'
