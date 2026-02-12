@@ -1,5 +1,6 @@
 QSP-Game ! локация выводит гиперссылки для восстановления чисел
 # upluck
+args[9] = args[9]
 $args['resu']='&nbsp;'
 if удача_восст[$curloc]=0 and arrsize('$num_unluck')>0:
 	if $AVS_PLAYERTYPE['html_support'] = 'qSpider':

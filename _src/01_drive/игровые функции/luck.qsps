@@ -1,7 +1,5 @@
 QSP-Game локация работы с удачей
-$args[0]=$args[0]
-args[1]=args[1]
-args[2]=args[2]
+
 # luck
 $args[9]=$args[9]	& !@ инициализация аргументов
 $args['res']=$func('base.txt','vm_1')
