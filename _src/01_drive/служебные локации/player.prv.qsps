@@ -2,23 +2,21 @@ QSP-Game Проверка запущенного плеера
 
 # player.prv
 if $QSPVER < '5.8.0':
-	!@ если это плеер версии 5.7.0, то мы имеем дело с классическим плеером
+	!@ если это плеер версии 5.7.0, то скорее всего мы имеем дело с классическим плеером
 	$args['result']=''
 else:
 	!@ если это плеер версии 5.8.0 или новее, то мы имеем дело либо с классическим, либо с qSpider
-	if instr($QSPVER, '(classic)'):
-		$args['result']='[CLASSIC]'
-	else:
-		$args['result']='[qSpider]'
+	$args['result'] = $iif(instr($QSPVER, '(classic)'), '[CLASSIC]', '[qSpider]')
+	!@ так же для плеера версии выше 5.8.0. мы можем определить платформу
+	if $QSPVER > '5.8.0':
+		$args['platform'] = $qspver('platform')
+		if $args['platform'] = 'Android':
+			$args['result'] += '[MINI]'
+		elseif $args['platform'] = 'Windows':
+			$args['result'] += '[DESKTOP]'
+		end
 	end
-	!@ так же для плеера версии 5.8.0. мы можем определить платформу
-	$args['platform'] = $qspver('platform')
-	if $args['platform'] = 'Android':
-		$args['result'] += '[MINI]'
-	elseif $args['platform'] = 'Windows':
-		$args['result'] += '[DESKTOP]'
-	end 
 end
-$result=$args['result']
+$result = $args['result']
 
 --- player.prv ---------------------------------

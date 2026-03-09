@@ -27,7 +27,7 @@ elseif $strfind($args[0],$args[1]+'(:|=#)[\S]+')!'':
 	elseif $args['hex']='hex':
 		$args['result.num'] = $strfind($args['result.num'],'^([0-9A-Fa-f\-]+)([\S]*)$',1)
 	end
-	if isnum($args['result.num'])=-1:
+	if isnum($args['result.num']):
 		result=val($args['result.num'])
 	else
 		$result=$args['result.num']
