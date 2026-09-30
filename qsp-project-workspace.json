@@ -6669,21 +6669,57 @@
                 ]
             ]
         ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\easy.math\\get.tag.num.qsps": [
-            [
-                "get.tag.num",
-                [
-                    2,
-                    13
-                ]
-            ]
-        ],
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\easy.math\\get.word.inPos.qsps": [
             [
                 "get.word.inPos",
                 [
                     2,
                     16
+                ]
+            ]
+        ],
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\костыли\\костыль-разделитель.qsps": [
+            [
+                "-",
+                [
+                    31,
+                    32
+                ]
+            ]
+        ],
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\предметы.меню\\menu.info.qsps": [
+            [
+                "menu.info",
+                [
+                    46,
+                    55
+                ]
+            ]
+        ],
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\служебные локации\\onObjClick.qsps": [
+            [
+                "onObjClick",
+                [
+                    50,
+                    60
+                ]
+            ]
+        ],
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[2.0_start].qsps": [
+            [
+                "[start]",
+                [
+                    83,
+                    90
+                ]
+            ]
+        ],
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\костыли\\world.new.qsps": [
+            [
+                "world.new",
+                [
+                    61,
+                    70
                 ]
             ]
         ],
@@ -6741,39 +6777,12 @@
                 ]
             ]
         ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\костыли\\костыль-разделитель.qsps": [
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[0.0_launcher].qsps": [
             [
-                "-",
+                "[launcher]",
                 [
-                    31,
-                    32
-                ]
-            ]
-        ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\предметы.меню\\menu.info.qsps": [
-            [
-                "menu.info",
-                [
-                    46,
-                    55
-                ]
-            ]
-        ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\служебные локации\\onObjClick.qsps": [
-            [
-                "onObjClick",
-                [
-                    50,
-                    60
-                ]
-            ]
-        ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[1.0_about].qsps": [
-            [
-                "[1.0_about]",
-                [
-                    69,
-                    80
+                    84,
+                    94
                 ]
             ]
         ],
@@ -6786,36 +6795,27 @@
                 ]
             ]
         ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[0.0_launcher].qsps": [
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\easy.math\\get.tag.num.qsps": [
             [
-                "[launcher]",
+                "get.tag.num",
                 [
-                    84,
-                    94
+                    2,
+                    13
                 ]
             ]
         ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[2.0_start].qsps": [
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[1.0_about].qsps": [
             [
-                "[start]",
+                "[1.0_about]",
                 [
-                    83,
-                    90
-                ]
-            ]
-        ],
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\костыли\\world.new.qsps": [
-            [
-                "world.new",
-                [
-                    61,
-                    70
+                    69,
+                    80
                 ]
             ]
         ]
     },
     "files_paths": {
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\easy.math\\get.tag.num.qsps": "7bd445a485773285b9be70c25366fe5d",
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\easy.math\\get.tag.num.qsps": "a739d542a46b15bd7605feed5712d840",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 200\\page.162.qsps": "10ac22de98a792e5667b6a5c7b36ed85",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 200\\page.164.qsps": "2220add6f925c1bb88ca31aeb1309d06",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 664\\page.653.qsps": "fd279ff5647fc5ace94992f538a4bfc1",
@@ -7249,7 +7249,7 @@
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 400\\page.366.qsps": "78e0d04470d70dc76a55605c853d988e",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 150\\page.103.qsps": "c02d75396920405ed504399e00abdd01",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 300\\page.252.qsps": "d285a86c6eb84942554e67ef4294f623",
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[1.0_about].qsps": "63650e81e05148beb442fcb3cc44eb92",
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\00_launch\\[1.0_about].qsps": "4c185d755408e1726fcaa3c22acd2fd7",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 150\\page.105.qsps": "796af5e9323e8719c5652821789f8fd0",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 300\\page.261.qsps": "8b97a8c5653f69f7c0d271a5002772fa",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 550\\page.541.qsps": "9f5a43c3752b7b2b154c622f2c3d7353",
@@ -7564,7 +7564,7 @@
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 350\\page.342.qsps": "06109a87764d9def6e777366393c2481",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 500\\page.411.qsps": "69599d1acece22268ad5b67f1096441a",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 150\\page.125.qsps": "e903fd17ad2b7551dcf70efbde83333f",
-        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\служебные локации\\player.prv.qsps": "dd599d0a6b6be0b1ddd3b40a5051a22a",
+        "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\служебные локации\\player.prv.qsps": "620366e754b8fcbd90d0fd4c21898630",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\служебные локации\\back.varriors.qsps": "50d1dc3264f3d27ffa4ec38e47328cf0",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\02_pages\\разделы книгры 200\\page.153.qsps": "cbe918ec4ae8444ee7199f4b708d3901",
         "D:\\my\\GameDev\\QuestSoftPlayer\\games\\книги-игры\\qSpiderMerphyLaw\\_src\\01_drive\\предметы\\crt.obj.qsps": "f9398a971d160051c2eae66f3860d0bc"

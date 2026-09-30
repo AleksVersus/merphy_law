@@ -5,16 +5,27 @@ if $QSPVER < '5.8.0':
 	!@ если это плеер версии 5.7.0, то скорее всего мы имеем дело с классическим плеером
 	$args['result']=''
 else:
-	!@ если это плеер версии 5.8.0 или новее, то мы имеем дело либо с классическим, либо с qSpider
-	$args['result'] = $iif(instr($QSPVER, '(classic)'), '[CLASSIC]', '[qSpider]')
-	!@ так же для плеера версии выше 5.8.0. мы можем определить платформу
-	if $QSPVER > '5.8.0':
-		$args['platform'] = $qspver('platform')
-		if $args['platform'] = 'Android':
-			$args['result'] += '[MINI]'
-		elseif $args['platform'] = 'Windows':
-			$args['result'] += '[DESKTOP]'
-		end
+	!@ если это плеер версии 5.8.0 или новее, то мы имеем дело с:
+		!@ классическим
+		!@ qSpider
+		!@ QuaSPorium
+		!@ QSPNext
+	!@ Определить плеер в 5.8.0 и выше можно запросом к QSPVER:
+	$args['player'] = $lcase($qspver('player'))
+	if $args['player'] = 'qspider':
+		$args['result'] = '[qspider]'
+	elseif $args['player'] = 'qspnext' or $args['player'] = 'classic':
+		$args['result'] = '[CLASSIC]'
+	else:
+		!@ Запрос вернул пустое значение, либо неизвестное нам значение,
+		!@ значит по умолчанию считаем плеер классическим.
+		$args['result'] = '[CLASSIC]'
+	end
+	$args['platform'] = $qspver('platform')
+	if $args['platform'] = 'Android':
+		$args['result'] += '[MINI]'
+	elseif $args['platform'] = 'Windows':
+		$args['result'] += '[DESKTOP]'
 	end
 end
 $result = $args['result']
