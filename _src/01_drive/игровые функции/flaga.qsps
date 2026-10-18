@@ -15,7 +15,7 @@ if $args[0]<>'':
 		gosub 'del.obj.id',$id_array[args['pot']]	& !@ если во фляге есть какая-то жидкость, выливаем её.
 	end
 	$args['pot_']=$func('crt.obj',$args[1],'','',0,1,$args[0])	&	!@	создаём жидкость, которой хотим наполнить флягу
-	charge_array[args['pit']]=func('get.tag.num',$object_array[args['pit']],'maxchrg')	&	!@	заполняем флягу
+	charge_array[args['pit']]=func('get.tag.num.val',$object_array[args['pit']],'maxchrg')	&	!@	заполняем флягу
 	$args['name'] = $func('get.n.p',$object_array[arrpos('$id_array',$args['pot_'])],'Т')	& !@ название жидкости в творительном падеже
 	if $args['outBag']='true':
 		$print[]=$func('base.txt','liquid.full',$args['name'])	& !@ текст в пул о том, что фляжка наполнена

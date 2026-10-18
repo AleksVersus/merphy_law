@@ -797,6 +797,7 @@
     <Folder name="easy.math">
       <Location name="get.tag.cont"/>
       <Location name="get.tag.num"/>
+      <Location name="get.tag.num.val"/>
       <Location name="get.word.inPos"/>
       <Location name="#array.clr#"/>
       <Location name="#array.simp#"/>

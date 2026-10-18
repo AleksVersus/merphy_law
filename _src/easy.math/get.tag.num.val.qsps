@@ -1,0 +1,3 @@
+# get.tag.num.val
+result = val($func('get.tag.num', $args[0], $args[1]))
+--- get.tag.num.val ---------------------------------

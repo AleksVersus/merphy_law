@@ -29,9 +29,9 @@ elseif cube['start'] = 11:
 elseif cube['start'] = 12:
 	$args['l']='p:20	f:11	s:5'
 end
-power['start']=func('get.tag.num',$args['l'],'p')	&	!@	сила
-fast['start']=func('get.tag.num',$args['l'],'f')	&	!@	ловкость
-social['start']=func('get.tag.num',$args['l'],'s')	&	!@	обаяние
+power['start']=func('get.tag.num.val',$args['l'],'p')	&	!@	сила
+fast['start']=func('get.tag.num.val',$args['l'],'f')	&	!@	ловкость
+social['start']=func('get.tag.num.val',$args['l'],'s')	&	!@	обаяние
 power['now']=power['start']		&	!@	текущая сила
 fast['now']=fast['start']		&	!@	текущая ловкость
 social['now']=social['start']	&	!@	текущее обаяние

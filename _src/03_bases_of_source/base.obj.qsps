@@ -100,7 +100,7 @@ else
 	$args[111]='Крохотная фляжка, в которую помещается не больше двух глотков жидкости.'
 end
 $result=$args[111]:1DIN>:text] [eating:args[33]=arrpos('$position_array',$args[0])
-args[9]=func('get.tag.num',$object_array[args[33]],'power')
+args[9]=func('get.tag.num.val',$object_array[args[33]],'power')
 $print[]='Вы сделали глоток.'
 if power['now']+args[9]<=power['start']:
 	power['now']+=args[9]

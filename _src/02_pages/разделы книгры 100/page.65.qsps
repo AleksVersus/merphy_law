@@ -5,7 +5,7 @@ $lvar['динамический код']={
 if $args[0]='!war.refresh!':
 	if $tvar['refresh']='':
 		gosub 'get.daughter.obj',$curloc,'\[:палеандр:\]','$temp_id'
-		GAME_WAR['ratch.power.'+$temp_id[0]]=func('get.tag.num',$object_array[arrpos('$id_array',$temp_id[0])],'pownow')
+		GAME_WAR['ratch.power.'+$temp_id[0]]=func('get.tag.num.val',$object_array[arrpos('$id_array',$temp_id[0])],'pownow')
 		$tvar['refresh']='refresh'
 		killvar '$temp_id'
 	end

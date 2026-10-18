@@ -21,7 +21,7 @@ if instr($args['np'],'[фляга]')!0:
 	if args['заряд']>0:
 		args['pot']=arrpos('$position_array',$args[0])
 		$args['flaga']=$func('get.word.end',args['заряд'],'Осталось на '+$str(args['заряд'])+' глоток.|Осталось на '+$str(args['заряд'])+' глотка.|Осталось на '+$str(args['заряд'])+' глотков.|Фляжка пуста.')
-		args['power']=func('get.tag.num',$object_array[args['pot']],'power')
+		args['power']=func('get.tag.num.val',$object_array[args['pot']],'power')
 		$args['flaga']+=' Каждый глоток восстанавливает '+$str(args['power'])+' СИЛЫ.'
 	else
 		$args['flaga']='Фляга пуста.'

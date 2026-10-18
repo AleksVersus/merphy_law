@@ -8,7 +8,7 @@ if arrsize('$temp_id')<2:
 end
 :for_gate
 if arrsize('$temp_id')>0:
-	args['res.page']+=func('get.tag.num',$object_array[arrpos('$id_array',$temp_id[0])],'page')
+	args['res.page']+=func('get.tag.num.val',$object_array[arrpos('$id_array',$temp_id[0])],'page')
 	killvar '$temp_id',0
 	jump 'for_gate'
 end

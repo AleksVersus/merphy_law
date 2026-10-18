@@ -208,7 +208,7 @@ if $args[0] = 'table.blast':
 				$args['name']+=$func('get.word.padez',$func('get.tag.cont',$object_array[args['pos.obj']],'name'),'И')
 				$args['name']+=$args['/attrib']+'</font></a>'
 				args['charge']=charge_array[args['pos.obj']]	& !@ текущий заряд
-				args['maxcharge']=func('get.tag.num',$object_array[args['pos.obj']],'maxchrg')	& !@ получаем максимальный уровень заряда
+				args['maxcharge']=func('get.tag.num.val',$object_array[args['pos.obj']],'maxchrg')	& !@ получаем максимальный уровень заряда
 				if instr($object_array[args['pos.obj']],'[maxchrg:')<>0 and args['maxcharge']=0:
 					!@ если максимальный уровень не получен, но в признаках был определён
 					$args['ch']='<span style="color:#000000;">'+$str(args['charge'])+'<span style="font-weight:bold;font-size:large">/∞</span></span>'

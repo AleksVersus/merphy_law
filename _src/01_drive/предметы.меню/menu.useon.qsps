@@ -18,7 +18,7 @@ end
 if instr($args['np'],'[снаряд]')!0:
 	gosub 'minus.obj',$args[0],1
 end
-args['useon']=func('get.tag.num',$args['obj'],'useon')
+args['useon']=func('get.tag.num.val',$args['obj'],'useon')
 if instr($run_array[args['pit']],'!use.on!')!0:
 	$args['l'] = $func('run.dynamic.script','!use.on!',$args[0])
 end

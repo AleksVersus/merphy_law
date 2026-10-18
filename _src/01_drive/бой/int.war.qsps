@@ -28,11 +28,11 @@ if $GAME_WAR['thiswar.'+$curloc]='':
 	:full_ratch
 	if arrsize('$temp_id')>0:
 		$args['ratch.body']=$object_array[arrpos('$id_array',$temp_id[0])]	& !@ получаем полное описание противника
-		GAME_WAR['ratch.power.'+$temp_id[0]]=func('get.tag.num',$args['ratch.body'],'power')	& !@ здоровье противника
+		GAME_WAR['ratch.power.'+$temp_id[0]]=func('get.tag.num.val',$args['ratch.body'],'power')	& !@ здоровье противника
 		GAME_WAR['ratch.power.max.'+$temp_id[0]]=GAME_WAR['ratch.power.'+$temp_id[0]]	& !@ максимальное здоровье противника
-		GAME_WAR['ratch.fast.'+$temp_id[0]]=func('get.tag.num',$args['ratch.body'],'fast')	& !@ ловкость противника
+		GAME_WAR['ratch.fast.'+$temp_id[0]]=func('get.tag.num.val',$args['ratch.body'],'fast')	& !@ ловкость противника
 		GAME_WAR['ratch.fast.max.'+$temp_id[0]]=GAME_WAR['ratch.fast.'+$temp_id[0]]	& !@ максимальная ловкость противника
-		args['blow']=func('get.tag.num',$args['ratch.body'],'blow')	& !@ сила удара противника...
+		args['blow']=func('get.tag.num.val',$args['ratch.body'],'blow')	& !@ сила удара противника...
 		if args['blow']=0: args['blow']=2							& !@ ...по умолчанию 2
 		GAME_WAR['ratch.blow.'+$temp_id[0]]=args['blow']	& !@ записываем силу удара
 		!@ args['i']+=1
