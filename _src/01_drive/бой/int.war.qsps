@@ -19,7 +19,7 @@ if $GAME_WAR['thiswar.'+$curloc]='':
 	$GAME_WAR['exit.'+$curloc]=$lvar['exit']			&	!@	перейти на локацию такую-то в случае победы
 	$GAME_WAR['DIN.'+$curloc]=$lvar['динамический код']	&	!@	перейти на локацию такую-то в случае победы
 	$GAME_WAR['thiswar.'+$curloc]='war'					&	!@	переключаем состояние боя в режим боя
-	GAME_WAR['hero.fast']=lvar['штраф.ловк'] & !@ штрафы и бонусы герою
+	GAME_WAR['hero.fast']=val(lvar['штраф.ловк']) & !@ штрафы и бонусы герою
 	killvar '$lvar'	& !@ удаляем временные значения
 	killvar '$temp_id'	& !@ на всякий случай удаляем временный массив
 	gosub 'get.daughter.obj',$curloc,'<ratch>','$temp_id' & !@ получаем список противников (список их айди)
@@ -31,7 +31,7 @@ if $GAME_WAR['thiswar.'+$curloc]='':
 		GAME_WAR['ratch.power.'+$temp_id[0]]=func('get.tag.num',$args['ratch.body'],'power')	& !@ здоровье противника
 		GAME_WAR['ratch.power.max.'+$temp_id[0]]=GAME_WAR['ratch.power.'+$temp_id[0]]	& !@ максимальное здоровье противника
 		GAME_WAR['ratch.fast.'+$temp_id[0]]=func('get.tag.num',$args['ratch.body'],'fast')	& !@ ловкость противника
-		GAME_WAR['ratch.fast.max.'+$temp_id[0]]	& !@ максимальная ловкость противника
+		GAME_WAR['ratch.fast.max.'+$temp_id[0]]=GAME_WAR['ratch.fast.'+$temp_id[0]]	& !@ максимальная ловкость противника
 		args['blow']=func('get.tag.num',$args['ratch.body'],'blow')	& !@ сила удара противника...
 		if args['blow']=0: args['blow']=2							& !@ ...по умолчанию 2
 		GAME_WAR['ratch.blow.'+$temp_id[0]]=args['blow']	& !@ записываем силу удара

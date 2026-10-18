@@ -3,7 +3,7 @@ QSP-Game локация формирует таблицу для вывода в
 $args['res.021213']='<table width=100% cellpadding=0 cellspacing=2 border=1><tr><td>№П.П.</td><td>ID</td><td>Тело объекта</td><td>расположение</td><td>Дочерний:</td><td>кол-во</td><td>заряд</td></tr>'
 args['i_inputText'] = 0
 :new2
-$args['res.021213']=$args['res.021213']+'<tr><td>['+$str(args['i_inputText'])+']</td><td>'+$id_array[args['i_inputText']]+'</td><td>'+$replace($replace($object_array[args['i_inputText']],'<','&lt;'),'>','&gt;')+'</td><td>{'+$position_array[args['i_inputText']]+'}</td><td>^'+$include_array[args['i_inputText']]+'^</td><td>'+$str(kolvo_array[args['i_inputText']])+'</td><td>'+$str(charge_array[args['i_inputText']])+'</td></tr>'
+$args['res.021213']=$args['res.021213']+'<tr><td>['+$str(args['i_inputText'])+']</td><td>'+$id_array[args['i_inputText']]+'</td><td>'+$replace($replace($object_array[args['i_inputText']],'<','&lt;'),'>','&gt;')+'</td><td>{'+$position_array[args['i_inputText']]+'}</td><td>^'+$include_array[args['i_inputText']]+'^</td><td>'+$str(val(kolvo_array[args['i_inputText']]))+'</td><td>'+$str(val(charge_array[args['i_inputText']]))+'</td></tr>'
 args['i_inputText']+=1
 if arrsize('$id_array')>args['i_inputText']: jump 'new2'
 $args['res.021213']+='<tr><td>№П.П.</td><td>ID</td><td>Тело объекта</td><td>расположение</td><td>Дочерний:</td><td>кол-во</td><td>заряд</td></tr></table>'

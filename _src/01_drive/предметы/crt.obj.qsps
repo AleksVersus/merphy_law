@@ -34,8 +34,8 @@ $object_array[] = $args[2]
 !@ располагаем предмет в указанной позиции. если позиция не указана - на текущей локации.
 if $args[5]<>'':$position_array[] = $args[5] else $position_array[] = $curloc
 !@ задаём количество и заряд
-charge_array[] = args[3]
-kolvo_array[] = args[4]
+charge_array[] = val(args[3])
+kolvo_array[] = val(args[4])
 !@ задаём динамический код предмета, выполняемый в нужных местах:
 $run_array[] = $args[6]
 $result = $id_array[]
