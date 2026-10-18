@@ -23,7 +23,7 @@ if instr($args['obj'],'[useon')!0:
 		$OOC_menu[]='Воспользоваться:menu.useon'
 	end
 end
-if instr($tvar['костыль.заголовок'],'<avs-money:')<>0:
+if instr($tvar['костыль.заголовок'],'[avs-money:')<>0:
 !@ если тип данной локации - локация торговли
 	!@ получаем список предметов, которые тут можно продать
 	$args['mass-sale']=$func('get.tag.cont',$tvar['костыль.заголовок'],'avs-obj')

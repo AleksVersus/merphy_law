@@ -5,6 +5,7 @@ if $QSPVER < '5.8.0':
 	!@ если это плеер версии 5.7.0, то скорее всего мы имеем дело с классическим плеером
 	$args['result']=''
 else:
+	$AVS_PLAYERTYPE['func_support'] = '5.8.0'
 	!@ если это плеер версии 5.8.0 или новее, то мы имеем дело с:
 		!@ классическим
 		!@ qSpider
@@ -13,19 +14,26 @@ else:
 	!@ Определить плеер в 5.8.0 и выше можно запросом к QSPVER:
 	$args['player'] = $lcase($qspver('player'))
 	if $args['player'] = 'qspider':
-		$args['result'] = '[qspider]'
-	elseif $args['player'] = 'qspnext' or $args['player'] = 'classic':
-		$args['result'] = '[CLASSIC]'
+		$AVS_PLAYERTYPE['type'] = 'qspider'
+		$AVS_PLAYERTYPE['html_support']="qspider"
+	elseif $args['player'] = 'qspnext':
+		$AVS_PLAYERTYPE['type'] = 'qspnext'
+		$AVS_PLAYERTYPE['html_support']=""
+	elseif $args['player'] = 'classic':
+		$AVS_PLAYERTYPE['type'] = 'classic'
+		$AVS_PLAYERTYPE['html_support']=""
 	else:
 		!@ Запрос вернул пустое значение, либо неизвестное нам значение,
 		!@ значит по умолчанию считаем плеер классическим.
-		$args['result'] = '[CLASSIC]'
+		$AVS_PLAYERTYPE['type'] = 'classic'
+		$AVS_PLAYERTYPE['html_support']=""
 	end
-	$args['platform'] = $qspver('platform')
-	if $args['platform'] = 'Android':
-		$args['result'] += '[MINI]'
-	elseif $args['platform'] = 'Windows':
-		$args['result'] += '[DESKTOP]'
+
+	$args['platform'] = $lcase($qspver('platform'))
+	if $args['platform'] = 'android':
+		$AVS_PLAYERTYPE['size'] = 'mini'
+	elseif $args['platform'] = 'windows':
+		$AVS_PLAYERTYPE['size'] = 'desktop'
 	end
 end
 $result = $args['result']
