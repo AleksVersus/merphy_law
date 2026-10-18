@@ -3,7 +3,7 @@ QSP-Game ! локация выводит гиперссылки для восс�
 args[9] = args[9]
 $args['resu']='&nbsp;'
 if удача_восст[$curloc]=0 and arrsize('$num_unluck')>0:
-	if $AVS_PLAYERTYPE['html_support'] = 'qSpider':
+	if $AVS_PLAYERTYPE['html_support'] = 'qspider':
 		$args['open.f']+='<span style="font-size:large;font-weight:bolder;">'
 		$args['close.f']+='</span>'
 	else

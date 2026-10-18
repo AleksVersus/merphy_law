@@ -50,7 +50,7 @@ $args['p5']='В путь, майор! Возвращайтесь с победо
 $args['href.back.1']='<a href="exec:goto ''[start]''" title="переход к начальной локации" class="plain">В главное меню</a>'
 !@ основной разде. третий раздел
 $args['head.floor1.3']='Несколько слов о геймплее'
-if $AVS_PLAYERTYPE['size']="MINI":
+if $AVS_PLAYERTYPE['size']="mini":
 	$args['p5.1']='Я пострался сделать простое и понятное управление. Переходы между локациями/эпизодами происходят по гиперссылкам, которые, как правило, располагаются в тексте. Иногда переходы осуществляются автоматически при использовании предметов.'
 	$args['p5.2']='Вверху и внизу экрана располагаются три ссылки:<qhtml><ul style="text-align:left;"><li><span class="yello_text">[Назад]</span> — позволяет пролистывать страницы в обратном порядке, т.е. откатывать прохождение.</li><li><span class="yello_text">[9|33|12]</span> — эта ссылка отображает состояние характеристик ЛОВКОСТЬ|СИЛА|ОБАЯНИЕ, а так же позволяет войти на экран статистики. Там отображаются те же самые характеристики, но в более развёрнутом виде, а так же числа удачи и неудачи и кое-какие заметки.</li><li><span class="yello_text">[Предметы]</span> — эта ссылка открывает экран со списком имеющихся у вас предметов.</li></ul></qhtml>'
 	$args['p5.3']='Если вы находитесь на экране статистики или на экране предметов, вместо ссылки <span class="yello_text">[назад]</span> появляется ссылка <span class="yello_text">[закрыть]</span>, которая возвращает вас на экран описания локации.'
@@ -89,18 +89,18 @@ end
 $args['p6']='Надеюсь, эти сведения хоть немного помогут вам в прохождении.'
 $args['p7']='Приятной игры!'
 $args['p8']='С уважением,<br>Aleks Versus'
-!@ if $AVS_PLAYERTYPE['size']<>"MINI":
-	if $AVS_PLAYERTYPE['html_support'] = 'qSpider':
+!@ if $AVS_PLAYERTYPE['size']<>"mini":
+	if $AVS_PLAYERTYPE['html_support'] = 'qspider':
 		!@ собираем текстовки для quest navigator и qspider
-		if $AVS_PLAYERTYPE['size']<>"MINI":
+		if $AVS_PLAYERTYPE['size']<>"mini":
 			$args["styles.1"]='style="display:flex;align-justify:flex-start;"'
 			$args["styles.2"]=' style="font-size:0.9em;position: sticky; top: 0;"'
 		end
 		$args['screen']+='<div <<$args["styles.1"]>> class="main_cover">'
-			if $AVS_PLAYERTYPE['size']<>"MINI": $args['screen']+='<div syle="padding:0.15em;">'
+			if $AVS_PLAYERTYPE['size']<>"mini": $args['screen']+='<div syle="padding:0.15em;">'
 				$args['screen']+='<span <<$args["styles.2"]>> class="back_href">'+$args['href.back']+'</span><br>'
-			if $AVS_PLAYERTYPE['size']<>"MINI": $args['screen']+='</div>'
-			if $AVS_PLAYERTYPE['size']<>"MINI": $args['screen']+='<div>'	& !@ средний блок
+			if $AVS_PLAYERTYPE['size']<>"mini": $args['screen']+='</div>'
+			if $AVS_PLAYERTYPE['size']<>"mini": $args['screen']+='<div>'	& !@ средний блок
 			$args['screen']+='<span class="heading">'+$args['head.floor1.1']+'</span><br>'
 			$args['screen']+='<span class="subhead">'+$args['subhead1.1']+'</span>'
 			$args['screen']+='<p class="pgf">'+$args['p1']+'</p>'
@@ -113,7 +113,7 @@ $args['p8']='С уважением,<br>Aleks Versus'
 				if $args['p<<args["j"]>>.<<args["i"]>>']<>'':
 					$args['screen']+='<p class="pgf">'+$args['p<<args["j"]>>.<<args["i"]>>']+'</p>'
 					if args['i']=2 and args['j']=1:
-						if $AVS_PLAYERTYPE['size']="MINI": $args['screen']+="<br>"	& !@ без этого отступа табличка приклеивается к строке
+						if $AVS_PLAYERTYPE['size']="mini": $args['screen']+="<br>"	& !@ без этого отступа табличка приклеивается к строке
 						$args['screen']+=$func('base.txt','table.mainsets')
 					end
 					args['i']+=1
@@ -139,16 +139,16 @@ $args['p8']='С уважением,<br>Aleks Versus'
 			$args['screen']+='<p class="pgf">'+$args['p6']+'</p>'
 			$args['screen']+='<p class="pgf">'+$args['p7']+'</p>'
 			$args['screen']+='<p style="text-align:right;">'+$args['p8']+'</p>'
-			if $AVS_PLAYERTYPE['size']<>"MINI": $args['screen']+='</div>'
+			if $AVS_PLAYERTYPE['size']<>"mini": $args['screen']+='</div>'
 		$args['screen']+='</div>'
 		jump 'end_keep'
 	else
 		!@ классический плеер
 		:classical
-		if $AVS_PLAYERTYPE['size']<>"MINI":$args['screen']+='<center><table border=0><tr name=port>'
-			if $AVS_PLAYERTYPE['size']<>"MINI": $args['screen']+='<td align=left valign=top width=5%>'
+		if $AVS_PLAYERTYPE['size']<>"mini":$args['screen']+='<center><table border=0><tr name=port>'
+			if $AVS_PLAYERTYPE['size']<>"mini": $args['screen']+='<td align=left valign=top width=5%>'
 				$args['screen']+='<font size=-4>'+$args['href.back']+'</font>'
-			if $AVS_PLAYERTYPE['size']<>"MINI": $args['screen']+='</td><td align=justify>'
+			if $AVS_PLAYERTYPE['size']<>"mini": $args['screen']+='</td><td align=justify>'
 				$args['screen']+='<p align=center>'
 					$args['screen']+='<font color=#dddd00 size=+3>'+$args['head.floor1.1']+'</font><br><br>'
 					$args['screen']+='<font color=#dddd00 size=-4>'+$args['subhead1.1']+'</font>'
@@ -165,7 +165,7 @@ $args['p8']='С уважением,<br>Aleks Versus'
 							$args['screen']+=$replace($args['p<<args["j"]>>.<<args["i"]>>'],'<span class="yello_text">','<span style="color:#888800;">')
 						$args['screen']+='</p>'
 						if args['i']=2 and args['j']=1:
-							if $AVS_PLAYERTYPE['size']="MINI": $args['screen']+="<br>"	& !@ без этого отступа табличка приклеивается к строке
+							if $AVS_PLAYERTYPE['size']="mini": $args['screen']+="<br>"	& !@ без этого отступа табличка приклеивается к строке
 							$args['screen']+=$func('base.txt','table.mainsets')
 						end
 						args['i']+=1
@@ -198,10 +198,10 @@ $args['p8']='С уважением,<br>Aleks Versus'
 				$args['screen']+='<p align=justify>'+$args['p6']+'</p>'
 				$args['screen']+='<p align=justify>'+$args['p7']+'</p>'
 				$args['screen']+='<p align=right>'+$args['p8']+'</p>'
-			if $AVS_PLAYERTYPE['size']<>"MINI":$args['screen']+='</td><td width=5%>'
+			if $AVS_PLAYERTYPE['size']<>"mini":$args['screen']+='</td><td width=5%>'
 				$args['screen']+='<font size=-4>'+$args['href.back']+'</font>'
-			if $AVS_PLAYERTYPE['size']<>"MINI":$args['screen']+='</td>'
-		if $AVS_PLAYERTYPE['size']<>"MINI":$args['screen']+='</tr></table></center>'
+			if $AVS_PLAYERTYPE['size']<>"mini":$args['screen']+='</td>'
+		if $AVS_PLAYERTYPE['size']<>"mini":$args['screen']+='</tr></table></center>'
 		jump 'end_keep'
 	end
 !@ else

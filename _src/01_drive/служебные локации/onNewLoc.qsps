@@ -25,7 +25,7 @@
 !@
 if val($strfind($curloc,'\d+'))>0 and strcomp($curloc,'page\.\d+')<>0:
 	!@ если мы имеем дело с локацией, являющейся именно страницей книги-игры
-	if $AVS_PLAYERTYPE['type']="qSpider" and $GAME_HELP['QN']='':
+	if $AVS_PLAYERTYPE['type']="qspider" and $GAME_HELP['QN']='':
 		!@ для Quest Navigator выводим подсказку по сохранениям
 		$GAME_HELP['QN']='yep'
 		$print[] = '<span style="color:#880000;">Внимание!!! Контрольные точки сохраняются в первом слоте, быстрые сохранения - во втором.</span> <br>'

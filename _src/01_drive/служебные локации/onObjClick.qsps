@@ -49,7 +49,7 @@ if instr($args['obj'],'[quest]')=0:	$OOC_menu[]='Выбросить:menu.put'
 if instr($tvar['костыль.заголовок'],'<lock.obj>')<>0: killvar '$OOC_menu' 
 if instr($tvar['костыль.заголовок'],'<avs-death>')=0:
 	if arrsize('$OOC_menu')>1:
-		!@ if $AVS_PLAYERTYPE['size']="MINI":
+		!@ if $AVS_PLAYERTYPE['size']="mini":
 			!@ меню выводится в экране
 			!@ 
 		!@ else

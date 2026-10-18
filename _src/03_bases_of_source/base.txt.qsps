@@ -6,7 +6,7 @@ $args[9] = $args[9]
 if $args[0] = 'table.mainsets':
 !@ рисуем табличку с начальными характеристиками
 	!@ здесь $args[1] — выброшенное на кубиках значение
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 	!@ для мобильной версии это не табличка, а своего рода список вариантов
 		$args['res']=''
 		$args['2.2']='&nbsp;'
@@ -123,10 +123,10 @@ if $args[0]='table.numbers':
 		if args['i']<arrsize('$num_unluck'): $args['unluck']+=',&nbsp;'
 		jump 'unluck'
 	end
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 		!@ в любом плеере mini таблица растягивается на 100% экрана
 			$args['res']='<table width=100% cellspacing=0>'
-	elseif $AVS_PLAYERTYPE['type']="QN" or $AVS_PLAYERTYPE['type']="qSpider":
+	elseif $AVS_PLAYERTYPE['type']="QN" or $AVS_PLAYERTYPE['type']="qspider":
 		!@ в навигаторе и qSpider поведение таблицы определяется стилями
 		$args['res']='<table cellspacing=0 class="avs_game_stat_table">'
 	else
@@ -140,10 +140,10 @@ if $args[0]='table.numbers':
 end
 if $args[0] = 'table.char':
 !@ отрисовка таблички характеристик персонажа (героя)
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 		!@ для мобильной версии табличка растягивается на ширину страницы
 		$args['res']='<table width=100% cellspacing=0>'
-	elseif $AVS_PLAYERTYPE['html_support']='qSpider':
+	elseif $AVS_PLAYERTYPE['html_support']='qspider':
 		!@ для навигатора и паука поведение таблички определяется стилями CSS
 		$args['res']='<table class="avs_game_stat_table">'
 	else
@@ -158,10 +158,10 @@ if $args[0] = 'table.char':
 end
 if $args[0] = 'table.blast':
 !@ вывод таблички предметов
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 		!@ для мобильной версии таблица растягивается на весь экран
 		$args['res']='<table width=100% cellspacing=0>'
-	elseif $AVS_PLAYERTYPE['html_support']='qSpider':
+	elseif $AVS_PLAYERTYPE['html_support']='qspider':
 		!@ для навигатора и паука таблица поведенствуется через CSS
 		$args['res']='<table class="avs_game_objs_table">'
 	else
@@ -336,7 +336,7 @@ end
 :лог боя
 if $args[0]='war.round':
 	!@ номера раундов
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<span class="avs_text_warround">Раунд <<GAME_WAR["round"]+1>></span>'
 	else
 		$args['res']="<font size=+1><b>Раунд <<GAME_WAR['round']+1>>.</b></font>"
@@ -345,7 +345,7 @@ if $args[0]='war.round':
 end
 if $args[0]='war':
 	$args['href']='<a href="exec:gosub ''int.war''" title="вызов обработчика боя" class="plain">'
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<avs-enemy><br><br><br><center>'+$args['href']+'<span style="font-size:large">Сражаться</span></a></center></avs-enemy><br>'
 	else
 		$args['res']='<avs-enemy><br><br><br><center>'+$args['href']+'<font size=+1>Сражаться</font></a></center></avs-enemy><br>'
@@ -353,7 +353,7 @@ if $args[0]='war':
 end
 if $args[0]='sell':
 	$args['res']='<br><br><br><center>Чтобы продать предмет, нужно щёлкнуть по его названию и в появившемся меню выбрать пункт "Продать".</center>'
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_stat">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#008800><i>'+$args['res']+'</i></font>'
@@ -361,7 +361,7 @@ if $args[0]='sell':
 end
 if $args[0]='ed':
 	args['rand']=rand(1,10)
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['open.f']='<span style="color:#998888;">'
 		$args['close.f']='</span>'
 	else
@@ -504,10 +504,10 @@ end
 if $args[0] = 'table.knew':
 !@ табличка со знаниями
 	$args['res']='<br><br>'
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 		!@ для мобильной версии таблица растягивается на весь экран
 		$args['res']+='<table width=100% cellspacing=0>'
-	elseif $AVS_PLAYERTYPE['html_support']='qSpider':
+	elseif $AVS_PLAYERTYPE['html_support']='qspider':
 		!@ для навигатора и паука таблица поведенствуется через CSS
 		$args['res']+='<table class="avs_game_knews_table">'
 	else
@@ -569,7 +569,7 @@ if $args[0]='game.enemy':
 		$args['res']=$args['выпало']+'<br>У противника выпало больше очков, чем у вас.<br>[page='+$args['lose']+']Выиграл он![/page]'
 	end
 	$args['res']='<br><br><p align=center>'+$args['res']+'</p>'
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_stup">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#000044><i>'+$args['res']+'</i></font>'
@@ -636,7 +636,7 @@ if $args[0]='vm_5':
 	$args['res']='<span style="color:#880000;">Произошла ошибка. Сделайте скриншот и обратитесь к разработчику</span>'
 end
 if $args[0]='note.objLoc':
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']="<span class=""avs_text_objonloc"">Предметы на локации:</span><br><br>"
 	else
 		$args['res']="<font size=-1>Предметы на локации:</font><br><br>"
@@ -650,7 +650,7 @@ end
 !@ Общая схема стилизации текстовки
 if $args['add.colors and attributes']='put':
 	!@ аналог print.put...
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_put">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#886600>'+$args['res']+'</font>'
@@ -658,7 +658,7 @@ if $args['add.colors and attributes']='put':
 end
 if $args['add.colors and attributes']='stat':
 	!@ аналог print.stat...
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_stat">'+$args['res']+'</div>'
 	else
 		$args['res']='<span style="color:#008800;"><i>'+$args['res']+'</i></span>'
@@ -666,7 +666,7 @@ if $args['add.colors and attributes']='stat':
 end
 if $args['add.colors and attributes']='save':
 	!@ аналог print.save...
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<span class="avs_text_print_save">'+$args['res']+'</span>'
 	else
 		$args['res']='<span style="color:#990066;"><b>'+$args['res']+'</b></span>'
@@ -674,7 +674,7 @@ if $args['add.colors and attributes']='save':
 end
 if $args['add.colors and attributes']='stup':
 	!@ аналог print.stup
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_stup">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#000044><i>'+$args['res']+'</i></font>'
@@ -682,7 +682,7 @@ if $args['add.colors and attributes']='stup':
 end
 if $args['add.colors and attributes']='nope':
 	!@ аналог print.nope
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_nope">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#880000>'+$args['res']+'</font>'
@@ -690,7 +690,7 @@ if $args['add.colors and attributes']='nope':
 end
 if $args['add.colors and attributes']='noit':
 	!@ аналог print.noit
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_noit">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#662222>'+$args['res']+'</font>'
@@ -698,7 +698,7 @@ if $args['add.colors and attributes']='noit':
 end
 if $args['add.colors and attributes']='ysit':
 	!@ аналог print.ysit
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_ysit">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#226622>'+$args['res']+'</font>'
@@ -706,7 +706,7 @@ if $args['add.colors and attributes']='ysit':
 end
 if $args['add.colors and attributes']='prov':
 	!@ аналог print.prov
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_prov">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#339900>'+$args['res']+'</font>'
@@ -714,7 +714,7 @@ if $args['add.colors and attributes']='prov':
 end
 if $args['add.colors and attributes']='take':
 	!@ аналог print.take
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_take">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#008888>'+$args['res']+'</font>'
@@ -722,7 +722,7 @@ if $args['add.colors and attributes']='take':
 end
 if $args['add.colors and attributes']='used':
 	!@ аналог print.used
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['res']='<div class="avs_text_print_used">'+$args['res']+'</div>'
 	else
 		$args['res']='<font color=#008800>'+$args['res']+'</font>'
@@ -730,7 +730,7 @@ if $args['add.colors and attributes']='used':
 end
 :зарядить_разрядить_бластер
 if $args[0]='blaster.incharge' or $args[0]='blaster.decharge':
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 		$args['c']='444499'
 		$args['c2']='666699'
 	else

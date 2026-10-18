@@ -3,25 +3,6 @@ QSP-Game самая первая локация. Здесь может быть 
 gosub 'set.newgame','kill'	& !@ выставляем настройки по-умолчанию. !!! TODO: НУЖНО ЛИ???
 $GAME_VALUE['interface']=''	& !@ установки интерфейса. Пустое значение: текст игры без доп элементов интерфейса.
 $save['game.number']=$func('#rndstr#',4,'буквы и цифры') & !@ генерим уникальный номер игры
-!@ разделяем типы, чтобы не заморачиваться с функциями instr
-$AVS_PLAYERTYPE['size'] = $iif(instr($AVS_PLAYERTYPE,"[MINI]")<>0, "MINI", "")
-if instr($AVS_PLAYERTYPE,"[qSpider]")<>0:
-	!@ inclib 'qSpider'
-	$AVS_PLAYERTYPE['type'] = 'qSpider'	& !@ qSpider
-	$AVS_PLAYERTYPE['html_support']="qSpider"
-elseif instr($AVS_PLAYERTYPE,"[CLASSIC]")<>0:
-	$AVS_PLAYERTYPE['type'] = 'classic'	& !@ classic 5.8.0
-	$AVS_PLAYERTYPE['html_support']=""
-else
-	$AVS_PLAYERTYPE['type'] = ''	& !@ classic 5.7.0
-	$AVS_PLAYERTYPE['html_support']=""
-end
-if instr($AVS_PLAYERTYPE,"[CLASSIC]")<>0 or instr($AVS_PLAYERTYPE,"[qSpider]")<>0:
-	!@ qSpider и новый классический плеер работают с новым типом функций
-	$AVS_PLAYERTYPE['func_support'] = '5.8.0'
-else:
-	$AVS_PLAYERTYPE['func_support'] = ''
-end
 gosub 'set.Screen','обложка.чёрный'	& !@ настраиваем экран
 
 !@ Набираем текст для последующего вывода на экран:
@@ -36,9 +17,9 @@ $args['link.startgame']='<a href="exec:goto ''page.-1''" id="start_the_game" cla
 $args['link.gameplay']='<a href="exec:goto ''[1.1_gameplay]''" id="about_gameplay" class="plain">Об игре</a>'
 $args['link.release']='<a href="exec:goto ''[1.0_about]''" id="about_release" class="plain">О текущей версии</a>'
 !@ для каждого плеера собственные настройки оформления. Зачем добиваться одинакового отображения, если все плееры разные?
-if $AVS_PLAYERTYPE['size']<>"MINI":
+if $AVS_PLAYERTYPE['size']<>"mini":
 	!@ только для десктопных версий плееров пишем собственные схемы вывода
-	if $AVS_PLAYERTYPE['html_support']="qSpider":
+	if $AVS_PLAYERTYPE['html_support']="qspider":
 		!@ для Quest Navigator и qSpider
 		$args['screen']+='<div class="main_cover">'
 			$args['screen']+='<span class="author">'+$args['author']+'</span><br>'
@@ -76,7 +57,7 @@ if $AVS_PLAYERTYPE['size']<>"MINI":
 		$args['screen']+='</table></center>'
 	end
 else
-	if $AVS_PLAYERTYPE['html_support']="qSpider":
+	if $AVS_PLAYERTYPE['html_support']="qspider":
 		!@ для Quest Navigator и qSpider
 		$args['screen']+='<div class="main_cover">'
 			$args['screen']+='<span class="author">'+$args['author']+'</span><br>'

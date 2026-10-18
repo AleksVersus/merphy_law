@@ -46,7 +46,7 @@ if arrsize('$temp_id')>0:
 	end
 	!@ теперь когда у нас есть вся нужная инфа, формируем строки
 	$args['table']+='<tr bgcolor=#d0d0d0><td width=50%>'+$args['name']+'<br><font size=-1 color=#444444>'+$args['po']+'</font></td><td align=right>'+$args['fight']+'</td></tr>'	& !@ строка таблицы с именем параметрами и ссылками
-	if $AVS_PLAYERTYPE['size']<>"MINI": $args['table']+='<tr><td width=50% height=2><img src="px.png" height=2></td><td align=right height=2><img src="px.png" height=2></td></tr>'	& !@ разделитель для всяких плееров, кроме mini
+	if $AVS_PLAYERTYPE['size']<>"mini": $args['table']+='<tr><td width=50% height=2><img src="px.png" height=2></td><td align=right height=2><img src="px.png" height=2></td></tr>'	& !@ разделитель для всяких плееров, кроме mini
 	killvar '$temp_id',0	& !@ удаляем противника из списка
 	jump 'for'	& !@ повторяем
 end

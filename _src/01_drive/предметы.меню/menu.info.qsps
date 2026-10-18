@@ -6,7 +6,7 @@ args['sit']=arrpos('$id_array',$args[0])
 $args['obj']=$object_array[args['sit']]
 $args['np']=$func('get.tag.cont',$args['obj'],'np')
 $args['text']=$func('int.DIN',$func('get.tag.cont',$args['obj'],'text'))
-if $AVS_PLAYERTYPE['size']="MINI":
+if $AVS_PLAYERTYPE['size']="mini":
 	$args['c']='444499'
 	$args['c2']='666699'
 else

@@ -27,7 +27,7 @@ if $args['colontitle']<>'' and $args['colontitle']<>'nope':
 	!@ если колонтитул получен, переформируем его
 	$args['colontitle']='-'+$args['colontitle']+'-'
 	!@ колонтитул оборачивается в стили в зависимости от пллера
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['colontitle']='<span class="avs_text_colontitle">'+$args['colontitle']+'</span>'
 	else
 		$args['colontitle']='<font color=#888888 size=1>'+$args['colontitle']+'</font>'
@@ -37,14 +37,14 @@ else
 end
 if instr($args[2],'<checkpoint>')<>0:
 	!@ данная локация является контрольной точкой
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['result.head']='<span class="avs_text_head_chp">'+$args['head']+'</span>'
 	else
 		$args['result.head']='<font color=#994400 size=6><b>'+$args['head']+'</b></font>'
 	end
 elseif instr($args[2],'<checkpoint>')=0:
 	!@ данная локация НЕ является контрольной точкой
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['result.head']='<span class="avs_text_head_smp">'+$args['head']+'</span>'
 	else
 		$args['result.head']='<font color=#008899 size=6><b>'+$args['head']+'</b></font>'
@@ -56,7 +56,7 @@ if $GAME_INTERFACE['back.href']='true':
 	$args['hr.b']='<a href="exec:gosub ''back.varriors''" class="plain" id="avs_back_btn">'
 	$args['hr.b.n']='Назад'
 	$args['/hr.b']="</a>"
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['back.href']=$args['hr.b']+$args['hr.b.n']+$args['/hr.b']
 	else
 		$args['back.href']=$args['hr.b']+'<font color=#008888><b>'+$args['hr.b.n']+'</b></font>'+$args['/hr.b']
@@ -86,7 +86,7 @@ if instr($args[3],'[game]')=1:
 	!@ список предметов тоже генерируем в виде таблицы:
 	$args['objs.scroll']=$func('base.txt','table.blast')
 	!@ для классического плеера заворачиваем список в дополнительную таблицу
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['objs.scroll']=$args['objs.scroll']
 	else
 		$args['objs.scroll']="<table cellpadding=0 cellspacing=0><tr><td>"+$args['objs.scroll']+"</td></tr></table>"
@@ -97,13 +97,13 @@ if instr($args[3],'[game]')=1:
 		!@ не помню, в чём разница между $print и $print_down 
 		if arrsize('$print')>0: $args['r']=$func('#array.prnt#','$print','[only result]')
 		if arrsize('$print_down')>0:
-			if $AVS_PLAYERTYPE['size']="MINI":
+			if $AVS_PLAYERTYPE['size']="mini":
 				$args['print.down.log']=$func('#array.prnt#','$print_down','[only result]')
 			else
 				$args['r']+=$func('#array.prnt#','$print_down','[only result]')
 			end
 		end
-		if $AVS_PLAYERTYPE['html_support']='qSpider':
+		if $AVS_PLAYERTYPE['html_support']='qspider':
 			$args['r']='<span class="avs_text_infoscroll">'+$args['r']+'</span>'
 		else
 			$args['r']='<font color=#000088>'+$args['r']+'</font>'
@@ -116,10 +116,10 @@ if instr($args[3],'[game]')=1:
 		$args['info.scroll']='&nbsp;'
 	end
 	!@ общая таблица из объектов и дополнительных текстов
-	if $AVS_PLAYERTYPE['size']="MINI":
+	if $AVS_PLAYERTYPE['size']="mini":
 		!@ для мобильной версии табличка растягивается на ширину страницы
 		$args['objs_n_info']='<table width=100% cellpadding=0 cellspacing=0 border=0>'
-	elseif $AVS_PLAYERTYPE['html_support'] = 'qSpider':
+	elseif $AVS_PLAYERTYPE['html_support'] = 'qspider':
 		!@ для навигатора и паука поведение таблички определяется стилями CSS
 		$args['objs_n_info']='<table class="avs_game_objs_short">'
 	else
@@ -159,7 +159,7 @@ if $GAME_INTERFACE['next.href']='true':
 	$args['hr.np']='<a href="exec:power[''now'']=power[''start''] & $GAME_VALUE[''interface'']=''[game]'' & $GAME_INTERFACE[''refresh'']=''страница.сброс'' & goto ''page.<<$str(val($strfind($curloc,"\d+"))+1)>>''" id="avs_next_btn">'
 	$args['/hr.np']='</a>'
 	$args['hr.np.n']="next"
-	if $AVS_PLAYERTYPE['html_support']='qSpider':
+	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['nextpage']=$args['hr.np']+$args['hr.np.n']+$args['/hr.np']
 	else
 		$args['nextpage']=$args['hr.np']+'<font color=#008888>'+$args['hr.np.n']+'</font>'+$args['/hr.np']
@@ -169,7 +169,7 @@ elseif (instr($args[3],'[game]')=1 or save['count']>0):
 	$args['hr.np.e']='<a href="exec:gosub ''avs.sets''" class="plain" id="avs_epsilon_btn">'
 	$args['hr.np.s']='<a href="exec:gosub ''avs.save''" class="plain" id="avs_septima_btn">'
 	$args['/hr.np']='</a>'
-	if $AVS_PLAYERTYPE['html_support'] = 'qSpider':
+	if $AVS_PLAYERTYPE['html_support'] = 'qspider':
 		$args['nextpage']+=$args['hr.np.e']+"é"+$args['/hr.np']
 		$args['nextpage']+='&nbsp;'
 		$args['nextpage']+=$args['hr.np.s']+"S"+$args['/hr.np']
@@ -182,7 +182,7 @@ else
 	$args['nextpage']='&nbsp;'
 end
 !@ непосредственно генерим таблицу
-if $AVS_PLAYERTYPE['size']<>"MINI":
+if $AVS_PLAYERTYPE['size']<>"mini":
 	if $AVS_PLAYERTYPE['html_support'] = '':
 	!@ для классического плеера генерируем полную таблицу
 		$args['result']='<center><table cellpadding=10 border=0 width=100%>'
@@ -207,7 +207,7 @@ if $AVS_PLAYERTYPE['size']<>"MINI":
 				$args['result']+='</tr>'
 			end
 		$args['result']+='</table></center>'
-	elseif $AVS_PLAYERTYPE['html_support'] = "qSpider":
+	elseif $AVS_PLAYERTYPE['html_support'] = "qspider":
 	!@ если Quest Navigator или qSpider, пробуем генерить дивами
 		!@ левая колонка
 		if $args['stat']<>'' or $args['back.href']<>'':
@@ -287,7 +287,7 @@ else
 				if $args['back.href']<>"&nbsp;":$args['result']+='<br>'+'<b>'+$args['tools']+'</b>'
 			end
 		end
-	elseif $AVS_PLAYERTYPE['html_support'] = "qSpider":
+	elseif $AVS_PLAYERTYPE['html_support'] = "qspider":
 		!@ для плееров версии quest navigator и qSpider
 		if arrsize('$print')>0:
 			!@ описательные моменты выводятся поверх всех прочих текстов

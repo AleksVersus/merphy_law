@@ -8,21 +8,21 @@ QSP-Game Загрузчик. По сути эта локация помогае�
 !  https://github.com/AleksVersus/merphy_law — и скачайте исходники игры из папки _src
 !!! -------------------------- ДЛЯ РАЗРАБОТЧИКОВ ИГР НА QSP. ВНИМАНИЕ! ------------------------- !!!
 killall					&	!@ перед началом игры уничтожаем все переменные
-usehtml=1				&	!@ включаем html
-$onnewloc='onNewLoc'	&	!@	устанавливаем обработчик перехода на новую локацию.
-$ongsave='onGameSave'	&	!@	устанавливает обработчик сохранения состояния игры.
-$ongload='onGameLoad'	&	!@	устанавливает обработчик событий после загрузки состояния игры
-$usercom='uc'			&	!@	устанавливаем обработчик строки ввода
+usehtml = 1				&	!@ включаем html
+$onnewloc = 'onNewLoc'	&	!@	устанавливаем обработчик перехода на новую локацию.
+$ongsave = 'onGameSave'	&	!@	устанавливает обработчик сохранения состояния игры.
+$ongload = 'onGameLoad'	&	!@	устанавливает обработчик событий после загрузки состояния игры
+$usercom = 'uc'			&	!@	устанавливаем обработчик строки ввода
 debug=1	& !@ включаем режим отладки. Сохранения будут подходить от любой версии игры
 showinput 0	& !@ отключаем строку ввода на стартовом экране
 !@ проверка плеера:
-$AVS_PLAYERTYPE = $func('player.prv')
+gosub 'player.prv'
+if $AVS_PLAYERTYPE['size']<>'': goto '[start]'
 gosub 'set.Screen','обложка.чёрный'	&	!@ выставляем тему чёрной обложки
-if instr($AVS_PLAYERTYPE, '[MINI]')<>0 or instr($AVS_PLAYERTYPE, '[DESKTOP]')<>0: goto '[start]'
 '<center><table border=0><tr name=заголовок><td align=center><font color=#dddd00>ОЛЬГА ГОЛОТВИНА<br><font size=+3>ВЕРЕНИЦА МИРОВ</font><br>или<br><font size=+3>ВЫВОДЫ ИЗ ЗАКОНА МЕРФИ</font></font><br><font size=-3>Книга-игра</font></td></tr><tr name=text><td align=right>
 
 <center><font color=#008888>Каким плеером вы пользуетесь?</font></center>
-</td></tr><tr name=link><td align=center><a href="exec:goto ''[start]''" class="plain">Версия для компьютера</a>
+</td></tr><tr name=link><td align=center><a href="exec: $AVS_PLAYERTYPE[''size''] =''desktop'' & goto ''[start]''" class="plain">Версия для компьютера</a>
 
-<a href="exec: $AVS_PLAYERTYPE+=''[MINI]'' & goto ''[start]''" class="plain">Версия для мобильника</a></td></tr></table></center>'
+<a href="exec: $AVS_PLAYERTYPE[''size''] =''mini'' & goto ''[start]''" class="plain">Версия для мобильника</a></td></tr></table></center>'
 --- [launcher] ---------------------------------

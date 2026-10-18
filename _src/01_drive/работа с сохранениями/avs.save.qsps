@@ -14,12 +14,12 @@ if args[0]=0:
 	$temp_menu[]="Сохранить:avs.save"
 	$temp_menu[]="Загрузить:avs.save"
 	$temp_menu[]='-:-'
-	if $AVS_PLAYERTYPE['type']='qSpider':
+	if $AVS_PLAYERTYPE['type']='qspider':
 		$temp_menu[]="Загрузить чекпоинт [Q+W]:avs.save"
 	else
 		$temp_menu[]="Загрузить чекпоинт:avs.save"
 	end
-	if $AVS_PLAYERTYPE['type']<>'qSpider':
+	if $AVS_PLAYERTYPE['type']<>'qspider':
 		$temp_menu[]="-:-"
 		$temp_menu[]="Быстрое сохранение:avs.save"
 		$temp_menu[]="Быстрая загрузка:avs.save"
@@ -47,7 +47,7 @@ elseif args[0]=1:
 	end
 elseif args[0]=2:
 	!@ открыть сохранённое состояние
-	if $AVS_PLAYERTYPE['type'] = 'qSpider':
+	if $AVS_PLAYERTYPE['type'] = 'qspider':
 		!@ @qspider_open_pause_screen('saves')
 		opengame
 	else:
@@ -56,7 +56,7 @@ elseif args[0]=2:
 elseif args[0]=4:
 	!@ загрузить чекпоинт
 	if save['check']>0:
-		if $AVS_PLAYERTYPE['type'] = 'qSpider':
+		if $AVS_PLAYERTYPE['type'] = 'qspider':
 			opengame 'autosave'
 		else:
 			opengame 'save/autosave.sav'
@@ -70,7 +70,7 @@ elseif args[0]=6:
 		save['qs']+=1
 		save['count']+=1
 		$save['type']='quick'
-		if $AVS_PLAYERTYPE['type']<>'qSpider':
+		if $AVS_PLAYERTYPE['type']<>'qspider':
 			!@ qSpider имеет собственную систему быстрых сохранений
 			savegame 'save/quicksave.sav'
 			if $GAME_VALUE['save.reserve']<>'false': savegame 'save/'+$save['game.number']+'_'+$args['save.name']+'.sav'
@@ -82,7 +82,7 @@ elseif args[0]=6:
 elseif args[0]=7:
 	!@ быстрая загрузка
 	if save['qs']>0:
-		if $AVS_PLAYERTYPE['type']<>'qSpider':
+		if $AVS_PLAYERTYPE['type']<>'qspider':
 			!@ qSpider имеет собственную систему быстрых сохранений
 			opengame 'save/quicksave.sav'
 		end
@@ -95,7 +95,7 @@ elseif args[0] = 999:
 		save['check'] += 1
 		save['count'] += 1
 		$save['type'] = 'auto'
-		if $AVS_PLAYERTYPE['type'] = 'qSpider':
+		if $AVS_PLAYERTYPE['type'] = 'qspider':
 			savegame 'autosave'
 		else
 			savegame 'save/autosave.sav'
