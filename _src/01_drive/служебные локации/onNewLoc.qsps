@@ -66,7 +66,7 @@ if instr($lvar['заголовок'],'<avs-victory>')<>0:
 	$GAME_INTERFACE['refresh']='страница.сброс'	& !@ принудительное обновление настроек экрана
 	$GAME_VALUE['interface']=''	& !@ отключаем вывод статистики и предметов на экран
 end
-if instr($lvar['заголовок'],'<avs-game:')<>0:
+if instr($lvar['заголовок'],'[avs-game:')<>0:
 	!@ если это локация с мини-игрой, получаем ссылку, разрешающую или прерывающую миниигру
 	$args['на экран']+=$func('int.DIN',$func('base.txt','game.enemy',$func('get.tag.cont',$lvar['заголовок'],'avs-game')))
 end
