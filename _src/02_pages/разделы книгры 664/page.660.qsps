@@ -12,12 +12,12 @@ killvar '$temp_id':2DIN>? Или распрощаетесь с незнаком�
      
      <DIN3:gosub 'get.daughter.obj',$curloc
 if arrsize('$temp_id')=0:
-	$result=$func('base.txt','help.putobj')
+	$result=$func('base.texts','help.putobj')
 else
 	$result=''
 end
 killvar '$temp_id':3DIN></p>}
 if здесь_был[$curloc]=0:
-	if $GAME_VALUE['obj.inGame']!'': $position_array[arrpos('$id_array',$GAME_VALUE['obj.inGame'])]=$curloc
+	if $GAME_VALUE['obj.inGame']<>'': $position_array[arrpos('$id_array',$GAME_VALUE['obj.inGame'])]=$curloc
 end
 --- page.660 ---------------------------------

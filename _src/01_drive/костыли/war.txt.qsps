@@ -13,7 +13,7 @@ $args['name.Д']=$func('get.n.p',$args['enemy'],'Д')
 $args['name.В']=$func('get.n.p',$args['enemy'],'В')
 $args['sex']=$func('get.tag.cont',$args['enemy'],'sex')
 $args['enemy.sw']=$func('get.tag.cont',$args['enemy'])
-$args['enemy.txt']=$func('base.ratch',$args['enemy.sw'],'','blow')
+$args['enemy.text']=$func('base.ratch',$args['enemy.sw'],'','blow')
 args['enemy.cube']=func('get.tag.num.val',$args[2],'ecube')
 args['enemy.might']=func('get.tag.num.val',$args[2],'emight')
 args['enemy.blow']=func('get.tag.num.val',$args[2],'eblow')
@@ -57,16 +57,16 @@ elseif $args[0]='block':
 	$args['color']='666600'
 	$args['add.str']="<sub><font color=#444400>[<<args['hero.cube']+args['hero.fast']+args['hero.bns']>>=<<args['enemy.might']>> - силы равны]</font></sub>"
 elseif $args[0]='edeath':
-	$args['text']=$func('get.tag.cont',$args['enemy.txt'],$args[0])
+	$args['text']=$func('get.tag.cont',$args['enemy.text'],$args[0])
 	$args['color']='008800'
 	$args['text.reserve']=$func('base.texts','hve',$args['name.В'])
 	jump 'replaced'
 elseif $args[0]='pdeath':
-	$args['text']=$func('get.tag.cont',$args['enemy.txt'],$args[0])
+	$args['text']=$func('get.tag.cont',$args['enemy.text'],$args[0])
 	$args['color']='880000'
 	jump 'replaced'	
 end
-$args['text.list']=$func('get.tag.cont',$args['enemy.txt'],$args['text.type'])
+$args['text.list']=$func('get.tag.cont',$args['enemy.text'],$args['text.type'])
 $args['text']=$func('get.tag.cont',$args['text.list'],$str(args['num']))
 :replaced
 $args['war.cubes.e']="<sub><font color=#440000>[<<args['enemy.cube']>>]</font></sub>"
