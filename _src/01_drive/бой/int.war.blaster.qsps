@@ -6,17 +6,17 @@ $args['pos.bl']=$func('prv.obj.inBag','бластер')	& !@ проверяем 
 !@ проверяем заряды
 if $args['pos.bl']<>"" and charge_array[arrpos('$id_array',$args['pos.bl'])]>0:
 	!@ если бластер найден и число зарядов больше нуля
-	$GAME_WAR_LOG[]=$func('base.txt','war.round')	& !@ добавляем в лог надпись с номером раунда
+	$GAME_WAR_LOG[]=$func('base.texts','war.round')	& !@ добавляем в лог надпись с номером раунда
 	charge_array[arrpos('$id_array',$args['pos.bl'])]-=1	& !@ уменьшаем заряд
 	args['pit']=arrpos('$id_array',$args[0])	& !@ размещение противника в таблице объектов
 	$args['name']=$func('get.n.p',$object_array[args['pit']],'И')	& !@ имя в именительном падеже
 	$args['name.В']=$func('get.n.p',$object_array[args['pit']],'В')	& !@ имя в винительном падеже
 	$args['sex']=$func('get.tag.cont',$object_array[args['pit']],'sex')	& !@ пол противника
 	GAME_WAR['ratch.power.'+$args[0]]=0	& !@ убираем здоровье противника
-	$GAME_WAR['ratch.dead.'+$args[0]]=$func('base.txt','ed',$func('get.tag.cont',$object_array[args['pit']],'sex'))	& !@ делаем запись, что противник мёртв
+	$GAME_WAR['ratch.dead.'+$args[0]]=$func('base.texts','ed',$func('get.tag.cont',$object_array[args['pit']],'sex'))	& !@ делаем запись, что противник мёртв
 	GAME_WAR['death.enemy']+=1	& !@ увеличиваем счётчик смертей
 	if $GAME_WAR['select.enemy']=$args[0]: $GAME_WAR['select.enemy']=''	& !@ снимаем выделение, если этот противник был выделен
-	$GAME_WAR_LOG[]=$func('base.txt','hveb',$args['name.В'])	& !@ добавляем текст о смерти в лог боя
+	$GAME_WAR_LOG[]=$func('base.texts','hveb',$args['name.В'])	& !@ добавляем текст о смерти в лог боя
 else
 	!@ ошибочная ситуация. Ссылка "Выстрелить из бластера работает только если заряды бластера не истрачены"
 	$log_error[]='Ошибка! Такого быть не должно. Бластер оказался доступен к использованию, хотя заряды отсутствовали. Сообщите разработчику.'

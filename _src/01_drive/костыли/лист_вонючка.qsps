@@ -7,9 +7,9 @@ $args['dyn']={if $args[0]='!use.on!':
 end}
 if $args['empty']<>'':
 	$args['id']=$func('crt.obj','лист_вонючка','','',0,1,$args['empty'],$args['dyn'])
-	$print[]=$func('base.txt','add',$args['id'])
+	$print[]=$func('base.texts','add',$args['id'])
 else
-	$print[]=$func('base.txt','f','место_в_рюкзаке')
+	$print[]=$func('base.texts','f','место_в_рюкзаке')
 end
 :ext
 time['goto']=1

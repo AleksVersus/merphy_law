@@ -7,16 +7,16 @@ $args[9]=$args[9]	& !@ инициализируем переменные
 if $args[0]='href':
 	if tvar['cube']=0:
 	!@ если кубики не брошены, возвращаем ссылку на бросок кубиков
-		$args['res']=$func('base.txt','fst.prove')
+		$args['res']=$func('base.texts','fst.prove')
 	else
 	!@ если кубики брошены, вовзращаем результат
-		$args['res']=$func('base.txt','fst',tvar['cube'],fast['now'])+'<br><br>'
+		$args['res']=$func('base.texts','fst',tvar['cube'],fast['now'])+'<br><br>'
 		if tvar['cube']>fast['now']:
 		!@ если сумма выпавших очков больше вашей ловкости, то вы промахнулись, соскользнули, лопухнулись или чего ещё
-			$args['res']+=$func('base.txt','fst.lose',args[2])
+			$args['res']+=$func('base.texts','fst.lose',args[2])
 		else
 		!@ если меньше или равна ей, то вы победитель
-			$args['res']+=$func('base.txt','fst.win',args[1])
+			$args['res']+=$func('base.texts','fst.win',args[1])
 		end
 	end
 	$result=$args['res']

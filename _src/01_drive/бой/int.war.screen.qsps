@@ -29,15 +29,15 @@ if arrsize('$temp_id')>0:
 	if GAME_WAR['ratch.power.'+$temp_id[0]]>0:
 		!@ сражение-ссылки
 		if $GAME_WAR['select.enemy']='' or $GAME_WAR['select.enemy']=$temp_id[0]:
-			$args['fight']+=$func('base.txt','attack',$temp_id[0])
+			$args['fight']+=$func('base.texts','attack',$temp_id[0])
 		else
-			$args['fight']+=$func('base.txt','eo')
+			$args['fight']+=$func('base.texts','eo')
 		end
 		!@ уничтожить из бластера ссылки
 		$args['pos.bl']=$func('prv.obj.inBag','бластер')	& !@ ищем бластер
 		if $args['pos.bl']<>"" and charge_array[arrpos('$id_array',$args['pos.bl'])]>0 and instr($tvar['костыль.заголовок'],'<non-blaster>')=0:
 			!@ если бластер найден, заряжен и им можно пользоваться
-			$args['fight']+='<br>'+$func('base.txt','blaster-attack',$temp_id[0])	& !@ генерируем ссылку
+			$args['fight']+='<br>'+$func('base.texts','blaster-attack',$temp_id[0])	& !@ генерируем ссылку
 		end
 	else
 		!@ если здоровье противника меньше одного, получаем фразу смерти и не выводим параметры
@@ -54,9 +54,9 @@ killvar '$temp_id'	& !@ на всякий случай удаляем време
 $args['table']+='</table>'	& !@ закрываем внешнюю таблицу
 $args['список предметов']=$func('int.loc.obj',$curloc)	& !@ получаем список предметов
 ! в зависимости от режима генерируем таблицу победы или поражения, или предпоражения
-if $args[1]='victory': $args['table']=$func('base.txt','wv',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prewin.txt'])
-if $args[1]='lose': $args['table']=$func('base.txt','wl') & $args['список предметов']=''
-if $args[1]='prelose': $args['table']=$func('base.txt','wp',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prelose.txt'])	&	$args['список предметов']=''
+if $args[1]='victory': $args['table']=$func('base.texts','wv',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prewin.txt'])
+if $args[1]='lose': $args['table']=$func('base.texts','wl') & $args['список предметов']=''
+if $args[1]='prelose': $args['table']=$func('base.texts','wp',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prelose.txt'])	&	$args['список предметов']=''
 $args['на экран']+='<br>'+$args['table']+'<br>'	& !@ добаляем эту таблицу на экран
 !@ 
 *clr	& !@ очищаем экран

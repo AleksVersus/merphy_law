@@ -71,11 +71,11 @@ if instr($args[0],'[usebl]')=1:
 end
 if instr($args[0],'[pow]')=1:
 	args['p']=val($replace($replace($args[0],'[pow]'),'[/pow]'))
-	$args['res']=$func('base.txt','pow',args['p'])
+	$args['res']=$func('base.texts','pow',args['p'])
 end
 if instr($args[0],'[lovk]')=1:
 	args['p']=val($replace($replace($args[0],'[lovk]'),'[/lovk]'))
-	$args['res']=$func('base.txt','lovk',args['p'])
+	$args['res']=$func('base.texts','lovk',args['p'])
 end
 if instr($args[0],'[upluck]')=1:
 	$args['p']=$replace($replace($args[0],'[upluck]'),'[/upluck]')

@@ -71,20 +71,20 @@ if instr($args[3],'[game]')=1:
 	$args['stat']='<table class="avs_game_stat_short">'
 		$args['stat']+='<tr><td align=right>'
 			!@ характеристики сила, ловкость,обаяние
-			$args['stat']+=$func('base.txt','table.char')
+			$args['stat']+=$func('base.texts','table.char')
 		$args['stat']+='</td></tr>'
 		$args['stat']+='<tr name=numbers><td align=right>'
 			!@ числа удачи и неудачи
-			$args['stat']+=$func('base.txt','table.numbers')
+			$args['stat']+=$func('base.texts','table.numbers')
 		$args['stat']+='</td></tr>'
 		$args['stat']+='<tr name=knew><td align=right>'
 			!@ различная информация, полученная в ходе игры
-			$args['stat']+=$func('base.txt','table.knew')
+			$args['stat']+=$func('base.texts','table.knew')
 		$args['stat']+='</td></tr>'
 	$args['stat']+='</table>'
 	:предметы
 	!@ список предметов тоже генерируем в виде таблицы:
-	$args['objs.scroll']=$func('base.txt','table.blast')
+	$args['objs.scroll']=$func('base.texts','table.blast')
 	!@ для классического плеера заворачиваем список в дополнительную таблицу
 	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['objs.scroll']=$args['objs.scroll']
@@ -150,7 +150,7 @@ end
 $args['maintxtOp']='<table width=100% border=0>'
 	$args['maintxtOp']+='<tr><td name="maintxtOp">'+$args[0]+'<br><br></td></tr>'
 	if $args[1]<>'':
-		$args['maintxtOp']+='<tr name=objects><td bgcolor=#f0ffff>'+$func('base.txt','note.objLoc')+$args[1]+'</td></tr>'
+		$args['maintxtOp']+='<tr name=objects><td bgcolor=#f0ffff>'+$func('base.texts','note.objLoc')+$args[1]+'</td></tr>'
 	end
 $args['maintxtOp']+='</table>'
 $args[0]=$args['maintxtOp']

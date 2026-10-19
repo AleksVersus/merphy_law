@@ -5,6 +5,6 @@ $args['blast']=$func('prv.obj.inBag','бластер')	& !@ получаем а�
 args['pit']=arrpos('$id_array',$args['blast'])	& !@ расположение бластера в т.о.
 if -args[0]>charge_array[]: args[0]=-charge_array[args['pit']]	& !@ если бластер нужно разрядить на большее число зарядов, чем в нём есть. В этом случае уменьшаем число зарядов на то количество, которое есть в бластере
 charge_array[args['pit']]+=args[0]	& !@ изменяем число зарядов
-if args[0]>0: $print_down[]=$func('base.txt','blaster.incharge',args[0])	& !@ добавляем текст по увеличению заряда в пул
-if args[0]<0: $print_down[]=$func('base.txt','blaster.decharge',args[0])	& !@ добавляем текст по уменьшению заряда в пул
+if args[0]>0: $print_down[]=$func('base.texts','blaster.incharge',args[0])	& !@ добавляем текст по увеличению заряда в пул
+if args[0]<0: $print_down[]=$func('base.texts','blaster.decharge',args[0])	& !@ добавляем текст по уменьшению заряда в пул
 --- blast.charge ---------------------------------

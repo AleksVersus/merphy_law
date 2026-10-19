@@ -24,7 +24,7 @@ if instr($args['np'],'[монета]')<>0:
 	!@ получаем дочерние предметы кошеля
 	killvar '$temp_id'	& !@ удаляем временный массив на всякий случай
 	gosub 'get.daughter.obj',$args['кошел'],'\[:'+$args['sw']+':\]'	& !@ получаем идентификаторы предметов во временный массив
-	$print[]=$func('base.txt','get',$args[0])	& !@ добавляем текст к выводимому
+	$print[]=$func('base.texts','get',$args[0])	& !@ добавляем текст к выводимому
 	if arrsize('$temp_id')>0:
 	!@ если есть такой предмет, увеличиваем количество
 		kolvo_array[arrpos('$id_array',$temp_id[0])]+=kolvo_array[args['pit']]
@@ -48,7 +48,7 @@ if $args[1] = '':
 		$args[1] = $func('crt.obj','место_в_рюкзаке','','<body>',0,1,'INVENTORY')
 	end
 	!@ если нет пустой ячейки, значит предмет поднять нельзя, добавляем надпись, что предмет поднять нельзя и пропускаем остальное
-	if $args[1] = '': $print[] = $func('base.txt','f',$args['pos']) & jump 'ext'
+	if $args[1] = '': $print[] = $func('base.texts','f',$args['pos']) & jump 'ext'
 end
 !@ определяем не присутствует ли в данной позиции предмет
 args['posobjinpos']=arrpos('$position_array',$args[1])
@@ -57,7 +57,7 @@ if args['posobjinpos']<>-1:
 	gosub 'put.obj',$id_array[args['posobjinpos']],'//nope.goto//'	& !@ сбрасываем предмет без автоперехода на локацию
 end
 $position_array[arrpos('$id_array',$args[0])]=$args[1] & !@ кладём предмет в указанное место
-$print[]=$func('base.txt','add',$args[0])	& !@ добавляем текст подъёма предмета к выводу
+$print[]=$func('base.texts','add',$args[0])	& !@ добавляем текст подъёма предмета к выводу
 !@ конец процедуры
 :ext
 if $args[2]<>'//nope.goto//':

@@ -8,12 +8,12 @@ $args[9]=$args[9]	& !@ инициализация аргументов
 $args['prove']=$func('run.dynamic.script','!putobj.prv!',$args[0])
 if $args['prove']='false':
 !@ если сбросить предмет нельзя
-	$print[]=$func('base.txt','n')	& !@ добавляем текст к выводу, что предмет сбросить нельзя
+	$print[]=$func('base.texts','n')	& !@ добавляем текст к выводу, что предмет сбросить нельзя
 else
 !@ если сбросить предмет можно
 	if args[2]=0:
 		$position_array[arrpos('$id_array',$args[0])]=$curloc
-		$print[]=$func('base.txt','put',$args[0])
+		$print[]=$func('base.texts','put',$args[0])
 	else
 		$args['sw']=$func('get.tag.cont',$object_array[arrpos('$id_array',$args[0])])
 		gosub 'minus.obj',$args[0],args[2]

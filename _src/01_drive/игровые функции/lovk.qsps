@@ -5,5 +5,5 @@ QSP-Game ! локация ведёт подсчёт ловкости
 $args[9]=$args[9]	& !@ инициализируем аргументы
 fast['now']+=args[0]
 if instr($args[1],'max')<>0: fast['start']+=args[0]
-$print_down[]=$func('base.txt','lovkup',args[0])	& !@ в пул вывода добавляем текст повышения ловкости
+$print_down[]=$func('base.texts','lovkup',args[0])	& !@ в пул вывода добавляем текст повышения ловкости
 --- lovk ---------------------------------

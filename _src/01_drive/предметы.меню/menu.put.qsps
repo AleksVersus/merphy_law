@@ -26,7 +26,7 @@ end
 if  $args['notput']<>'true':
 	gosub 'put.obj',$args[0]
 else
-	$print[]=$func('base.txt','notput')
+	$print[]=$func('base.texts','notput')
 	time['goto']=1
 	gosub 'true.goto'
 end

@@ -3,7 +3,7 @@ QSP-Game локация, выполняющая стандартную атак�
 # int.war.attack
 $args[0] = $args[0]	&	!@ идентификатор выбранного противника
 $GAME_WAR['select.enemy']=$args[0]	& !@ отмечаем выбранного противника
-$GAME_WAR_LOG[]=$func('base.txt','war.round')	& !@ добавляем в лог номер раунда
+$GAME_WAR_LOG[]=$func('base.texts','war.round')	& !@ добавляем в лог номер раунда
 !@ сначала определяем собственные параметры
 !@ получаем мощность удара из текущей ловкости и случайного числа
 args['cube.hero']=rand(2,12)	& !@ выброшенные на кубиках очки
@@ -47,7 +47,7 @@ if arrsize('$temp_id')>0:
 			!@ если здоровье противника упало ниже единицы
 				$GAME_WAR_LOG[]=$func('war.txt','edeath',$temp_id[0],$args['attacks.all'])	& !@ вносим в лог текст
 				!@ отмечаем, что противник мёртв соответствующим текстом
-				$GAME_WAR['ratch.dead.'+$temp_id[0]]=$func('base.txt','ed',$func('get.tag.cont',$object_array[args['pit']],'sex'))
+				$GAME_WAR['ratch.dead.'+$temp_id[0]]=$func('base.texts','ed',$func('get.tag.cont',$object_array[args['pit']],'sex'))
 				GAME_WAR['death.enemy']+=1	& !@ число убитых противников увеличивается
 				$GAME_WAR['select.enemy']=''	& !@ снимаем выделение с противника
 			end

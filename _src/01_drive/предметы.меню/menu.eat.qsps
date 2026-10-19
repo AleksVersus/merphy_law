@@ -10,7 +10,7 @@ if instr($args['np'],'[напиток]')<>0:
 	if charge_array[args['sit']]>0:
 		charge_array[args['sit']]-=1
 	else
-		$print[]=$func('base.txt','empt') & jump 'ext'
+		$print[]=$func('base.texts','empt') & jump 'ext'
 	end
 end
 if instr($args['np'],'[лекарство]')<>0:

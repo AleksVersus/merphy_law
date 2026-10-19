@@ -11,17 +11,17 @@ if $args[0]<>'':
 	if args['pot']<>-1:
 		!@ если в таблице данных найдена текущая жидкость
 		$args['name'] = $func('get.n.p',$object_array[args['pot']],'В')	& !@ название жидкости в винительном падеже
-		$print[]=$func('base.txt','liquid.drop',$args['name'])	& !@ добавляем текст от выливании жидкости в пул
+		$print[]=$func('base.texts','liquid.drop',$args['name'])	& !@ добавляем текст от выливании жидкости в пул
 		gosub 'del.obj.id',$id_array[args['pot']]	& !@ если во фляге есть какая-то жидкость, выливаем её.
 	end
 	$args['pot_']=$func('crt.obj',$args[1],'','',0,1,$args[0])	&	!@	создаём жидкость, которой хотим наполнить флягу
 	charge_array[args['pit']]=func('get.tag.num.val',$object_array[args['pit']],'maxchrg')	&	!@	заполняем флягу
 	$args['name'] = $func('get.n.p',$object_array[arrpos('$id_array',$args['pot_'])],'Т')	& !@ название жидкости в творительном падеже
 	if $args['outBag']='true':
-		$print[]=$func('base.txt','liquid.full',$args['name'])	& !@ текст в пул о том, что фляжка наполнена
+		$print[]=$func('base.texts','liquid.full',$args['name'])	& !@ текст в пул о том, что фляжка наполнена
 	end
 else
-	$print[]=$func('base.txt','liquid.nopeflask')	& !@ фляжки нет в пул текстов
+	$print[]=$func('base.texts','liquid.nopeflask')	& !@ фляжки нет в пул текстов
 end
 if $args[2]<>'//nope.goto//':
 	!@ если нет запрета перезахода на локацию, перезаходим

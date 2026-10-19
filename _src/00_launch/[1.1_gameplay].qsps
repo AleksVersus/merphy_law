@@ -114,7 +114,7 @@ $args['p8']='С уважением,<br>Aleks Versus'
 					$args['screen']+='<p class="pgf">'+$args['p<<args["j"]>>.<<args["i"]>>']+'</p>'
 					if args['i']=2 and args['j']=1:
 						if $AVS_PLAYERTYPE['size']="mini": $args['screen']+="<br>"	& !@ без этого отступа табличка приклеивается к строке
-						$args['screen']+=$func('base.txt','table.mainsets')
+						$args['screen']+=$func('base.texts','table.mainsets')
 					end
 					args['i']+=1
 					jump 'for_paragraph'
@@ -166,7 +166,7 @@ $args['p8']='С уважением,<br>Aleks Versus'
 						$args['screen']+='</p>'
 						if args['i']=2 and args['j']=1:
 							if $AVS_PLAYERTYPE['size']="mini": $args['screen']+="<br>"	& !@ без этого отступа табличка приклеивается к строке
-							$args['screen']+=$func('base.txt','table.mainsets')
+							$args['screen']+=$func('base.texts','table.mainsets')
 						end
 						args['i']+=1
 						jump 'for_paragraph_1'

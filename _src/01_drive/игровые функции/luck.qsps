@@ -2,21 +2,21 @@ QSP-Game локация работы с удачей
 
 # luck
 $args[9]=$args[9]	& !@ инициализация аргументов
-$args['res']=$func('base.txt','vm_1')
+$args['res']=$func('base.texts','vm_1')
 if $args[0]='':
 !@ если это первое посещение локации
-	$args['res']+=$func('base.txt','vm_2')
+	$args['res']+=$func('base.texts','vm_2')
 elseif arrpos('$num_luck',$args[0])<>-1:
 !@ если это повторное посещение локации и выпавшее число находится в списке удачных чисел
 	killvar '$num_luck',arrpos('$num_luck',$args[0])	& !@ удаляем из списка чисел удачи
 	$num_unluck[]=$args[0]	& !@ добавляем в список чисел неудачи
-	$args['res']+=$func('base.txt','vm_3',$args[0],args[1])	& !@ добавляем соответствующий текст
+	$args['res']+=$func('base.texts','vm_3',$args[0],args[1])	& !@ добавляем соответствующий текст
 elseif arrpos('$num_unluck',$lvar['luck'])<>-1:
 !@ если это повторное посещение локации и выпавшее число находится в списке неудачных чисел
-	$args['res']+=$func('base.txt','vm_4',$args[0],args[2])	& !@ добавляем соответствующий текст
+	$args['res']+=$func('base.texts','vm_4',$args[0],args[2])	& !@ добавляем соответствующий текст
 else
 !@ ошибка число выходит за пределы возможных
-	$args['res']+=$func('base.txt','vm_5')	& !@ добавляем текст
+	$args['res']+=$func('base.texts','vm_5')	& !@ добавляем текст
 end
 $result=$args['res']	& !@ возврщаем собранные тексты в результат
 --- luck ---------------------------------

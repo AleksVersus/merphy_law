@@ -43,7 +43,7 @@ elseif args[0]=1:
 			end
 		end
 	else
-		$print[]=$func('base.txt','nosave')
+		$print[]=$func('base.texts','nosave')
 	end
 elseif args[0]=2:
 	!@ открыть сохранённое состояние
@@ -62,7 +62,7 @@ elseif args[0]=4:
 			opengame 'save/autosave.sav'
 		end
 	else
-		$print[]=$func('base.txt','notchp')
+		$print[]=$func('base.texts','notchp')
 	end
 elseif args[0]=6:
 	!@ быстрое сохранение
@@ -75,9 +75,9 @@ elseif args[0]=6:
 			savegame 'save/quicksave.sav'
 			if $GAME_VALUE['save.reserve']<>'false': savegame 'save/'+$save['game.number']+'_'+$args['save.name']+'.sav'
 		end
-		$print[]=$func('base.txt','save')
+		$print[]=$func('base.texts','save')
 	else
-		$print[]=$func('base.txt','nosave')
+		$print[]=$func('base.texts','nosave')
 	end
 elseif args[0]=7:
 	!@ быстрая загрузка
@@ -87,7 +87,7 @@ elseif args[0]=7:
 			opengame 'save/quicksave.sav'
 		end
 	else:
-		$print[]=$func('base.txt','notqck')
+		$print[]=$func('base.texts','notqck')
 	end
 elseif args[0] = 999:
 	!@ автосохранение
@@ -102,7 +102,7 @@ elseif args[0] = 999:
 			if $GAME_VALUE['save.reserve']<>'false': savegame 'save/'+$save['game.number']+'_'+$args['save.name']+'.sav'
 		end
 	else
-		$print[]=$func('base.txt','nosave')
+		$print[]=$func('base.texts','nosave')
 	end
 end
 if args[0]<>0 and args[0]<>999:

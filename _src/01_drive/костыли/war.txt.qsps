@@ -25,25 +25,25 @@ if $args[0]='eblow':
 	args['num']=args['enemy.cube']
 	$args['text.type']=$args[0]
 	$args['color']='880000'
-	$args['text.reserve']=$func('base.txt','ef',$args['name'],GAME_WAR['ratch.blow.'+$args[1]])
+	$args['text.reserve']=$func('base.texts','ef',$args['name'],GAME_WAR['ratch.blow.'+$args[1]])
 	$args['add.str']="<sub><font color=#440000>[<<args['hero.cube']+args['hero.fast']+args['hero.bns']>>&lt;<<args['enemy.might']>> - ваша СИЛА снижается: <<power['now']>>=<<power['now']+args['enemy.blow']>>-<<args['enemy.blow']>>]</font></sub>"
 elseif $args[0]='pblow':
 	args['num']=args['hero.cube']
 	$args['text.type']=$args[0]
 	$args['color']='008800'
-	$args['text.reserve']=$func('base.txt','hf',$args['name.Д'],$args['sex'],GAME_WAR['ratch.power.'+$args[1]])
+	$args['text.reserve']=$func('base.texts','hf',$args['name.Д'],$args['sex'],GAME_WAR['ratch.power.'+$args[1]])
 	$args['add.str']="<sub><font color=#004400>[<<args['hero.cube']+args['hero.fast']+args['hero.bns']>>&gt;<<args['enemy.might']>> - СИЛА противника снижается: <<args['enemy.power']>>=<<args['enemy.power']+2>>-<<2>>]</font></sub>"
 elseif $args[0]='pblock':
 	args['num']=args['hero.cube']
 	$args['text.type']=$args[0]
 	$args['color']='666600'
-	$args['text.reserve']=$func('base.txt','eea',$args['name'],$args['sex'])
+	$args['text.reserve']=$func('base.texts','eea',$args['name'],$args['sex'])
 	$args['add.str']="<sub><font color=#444400>[<<args['hero.cube']+args['hero.fast']+args['hero.bns']>>&gt;=<<args['enemy.might']>> - силы равны]</font></sub>"
 elseif $args[0]='eblock':
 	args['num']=args['enemy.cube']
 	$args['text.type']=$args[0]
 	$args['color']='666600'
-	$args['text.reserve']=$func('base.txt','wehn',$args['name.Р'],$args['sex'])
+	$args['text.reserve']=$func('base.texts','wehn',$args['name.Р'],$args['sex'])
 	$args['add.str']="<sub><font color=#444400>[<<args['hero.cube']+args['hero.fast']+args['hero.bns']>>&gt;=<<args['enemy.might']>> - силы равны]</font></sub>"
 elseif $args[0]='block':
 	if args['enemy.cube']>args['hero.cube']:
@@ -53,13 +53,13 @@ elseif $args[0]='block':
 		args['num']=args['hero.cube']
 		$args['text.type']='eblock'
 	end
-	$args['text.reserve']=$func('base.txt','wehn',$args['name.Р'],$args['sex'])
+	$args['text.reserve']=$func('base.texts','wehn',$args['name.Р'],$args['sex'])
 	$args['color']='666600'
 	$args['add.str']="<sub><font color=#444400>[<<args['hero.cube']+args['hero.fast']+args['hero.bns']>>=<<args['enemy.might']>> - силы равны]</font></sub>"
 elseif $args[0]='edeath':
 	$args['text']=$func('get.tag.cont',$args['enemy.txt'],$args[0])
 	$args['color']='008800'
-	$args['text.reserve']=$func('base.txt','hve',$args['name.В'])
+	$args['text.reserve']=$func('base.texts','hve',$args['name.В'])
 	jump 'replaced'
 elseif $args[0]='pdeath':
 	$args['text']=$func('get.tag.cont',$args['enemy.txt'],$args[0])

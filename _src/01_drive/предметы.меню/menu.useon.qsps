@@ -10,7 +10,7 @@ if instr($args['np'],'[заряженный]')!0:
 	if charge_array[args['pit']]>0:
 		charge_array[args['pit']]-=1
 	else
-		$print[]=$func('base.txt',"discharge")
+		$print[]=$func('base.texts',"discharge")
 		gosub 'true.goto'
 	end
 end

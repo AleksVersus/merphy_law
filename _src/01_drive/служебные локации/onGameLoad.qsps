@@ -1,9 +1,9 @@
 QSP-Game алгоритм, выполняющийся каждый раз при загрузке игры
 # onGameLoad
 if $save['type']='quick':
-	$print[]=$func('base.txt','qckload')
+	$print[]=$func('base.texts','qckload')
 elseif $save['type']='auto':
-	$print[]=$func('base.txt','chpload')
+	$print[]=$func('base.texts','chpload')
 end
 killvar "$GAME_HELP"	&	!@	подсказки выводятся снова
 gosub 'true.goto'

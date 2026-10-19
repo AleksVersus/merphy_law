@@ -19,9 +19,9 @@ end
 $args['bag']=$func('prv.bag','','',$args['идентификатор типа части тела'])
 
 if arrpos('$position_array',$args['bag'])<>-1:
-	$print[]=$func('base.txt','f',$args['идентификатор типа части тела'])
+	$print[]=$func('base.texts','f',$args['идентификатор типа части тела'])
 else
-	$print[]=$func('base.txt','used',$args['идентификатор типа части тела'],$args['name.В'])
+	$print[]=$func('base.texts','used',$args['идентификатор типа части тела'],$args['name.В'])
 	$position_array[args['pit']]=$args['bag']
 end
 :ext

@@ -335,7 +335,7 @@ elseif $args[2]='notspec':
 	if $args['obj']!'':
 		$args['obj'] = '<font color=#880000>'+ $args['obj'] +'</font>'
 	else
-		$args['obj'] = $func('base.txt','notspec')
+		$args['obj'] = $func('base.texts','notspec')
 	end
 end
 $result=$args['obj']

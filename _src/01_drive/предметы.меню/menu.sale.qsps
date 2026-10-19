@@ -2,7 +2,7 @@ QSP-Game Пункт меню продажи предмета
 # menu.sale
 if $args[0] = '': $args[0] = $OOC['id']
 $args['монеты']=$func('get.tag.cont',$tvar['костыль.заголовок'],'avs-money')
-$print[]=$func('base.txt','s',$args[0])
+$print[]=$func('base.texts','s',$args[0])
 gosub 'del.obj.id',$args[0]
 $args['m']=$func('crt.obj',$args['монеты'])
 gosub 'add.obj',$args['m'],'','//nope.goto//'
