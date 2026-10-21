@@ -54,9 +54,9 @@ killvar '$temp_id'	& !@ на всякий случай удаляем време
 $args['table']+='</table>'	& !@ закрываем внешнюю таблицу
 $args['список предметов']=$func('int.loc.obj',$curloc)	& !@ получаем список предметов
 ! в зависимости от режима генерируем таблицу победы или поражения, или предпоражения
-if $args[1]='victory': $args['table']=$func('base.texts','wv',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prewin.txt'])
+if $args[1]='victory': $args['table']=$func('base.texts','wv',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prewin.text'])
 if $args[1]='lose': $args['table']=$func('base.texts','wl') & $args['список предметов']=''
-if $args[1]='prelose': $args['table']=$func('base.texts','wp',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prelose.txt'])	&	$args['список предметов']=''
+if $args[1]='prelose': $args['table']=$func('base.texts','wp',$GAME_WAR['exit.'+$curloc],$GAME_WAR['prelose.text'])	&	$args['список предметов']=''
 $args['на экран']+='<br>'+$args['table']+'<br>'	& !@ добаляем эту таблицу на экран
 !@ 
 *clr	& !@ очищаем экран

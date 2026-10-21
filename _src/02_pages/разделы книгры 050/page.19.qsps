@@ -16,7 +16,7 @@ $lvar['динамический код']={if $args[0]='!war.powerdown!':
 	if power['now']<3:
 		$GAME_WAR['thiswar.'+$curloc]='prelose'
 		$GAME_WAR['exit.'+$curloc]='page.635'
-		$GAME_WAR['prelose.txt']='Ваша сила снизилась до 2-х. Увы...'
+		$GAME_WAR['prelose.text']='Ваша сила снизилась до 2-х. Увы...'
 	end
 end
 }

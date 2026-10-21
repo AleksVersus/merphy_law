@@ -14,7 +14,7 @@ if $args[0]='!war.round!':
 	if GAME_WAR['round']>3 and $GAME_WAR['thiswar.'+$curloc]='war':
 		$GAME_WAR['thiswar.'+$curloc]='prelose'
 		$lvar['exit']='page.369'
-		$GAME_WAR['prelose.txt']='Вы не успели убить стражника за четыре раунда...'
+		$GAME_WAR['prelose.text']='Вы не успели убить стражника за четыре раунда...'
 	end
 end
 }

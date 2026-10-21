@@ -90,4 +90,4 @@ $args['text']=$replace($args['text'],'  ',' ')
 $args['text']=$replace($args['text'],' .','.')
 $args['text']=$replace($args['text'],' ,',',')
 $result=$args['text']
---- war.txt ---------------------------------
+--- war.text ---------------------------------

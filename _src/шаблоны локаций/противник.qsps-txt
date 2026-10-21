@@ -1,7 +1,7 @@
 QSP-Game шаблон локации-противника
 
 # противник
-$lvar['заголовок']={3<avs-enemy>}
+$lvar['заголовок']="3<avs-enemy>"
 $lvar['исходник']={<qhtml><center><font size=+1>КУСТ-ХИЩНИК
 
 ЛОВКОСТЬ 9     СИЛА 10</font>
@@ -14,14 +14,14 @@ if $args[0]='!war.powerdown!':
 	if power['now']<3:
 		$GAME_WAR['thiswar.'+$curloc]='prelose'
 		$GAME_WAR['exit.'+$curloc]='page.373'
-		$GAME_WAR['prelose.txt']='Ваша сила снизилась до 2-х. Увы...'
+		$GAME_WAR['prelose.text']='Ваша сила снизилась до 2-х. Увы...'
 	end
 end
 if $args[0]='!war.ratchdown!':
 	if GAME_WAR['ratch.power.'+$temp_id[0]]<3:
 		$GAME_WAR['thiswar.'+$curloc]='victory'
 		$GAME_WAR['exit.'+$curloc]='page.411'
-		$GAME_WAR['prewin.txt']='Его сила упала до двух! Ура!!!'
+		$GAME_WAR['prewin.text']='Его сила упала до двух! Ура!!!'
 	end
 end
 }

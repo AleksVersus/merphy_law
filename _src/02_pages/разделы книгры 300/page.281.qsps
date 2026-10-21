@@ -1,20 +1,24 @@
 # page.281
-$lvar['заголовок']={Мир Легенд}
-$lvar['исходник']={<p align=justify>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;«Мне везет! — бурно радуется ваш противник. — Сыграем ещё раз?»
-     Хотите <DIN2:gosub 'get.daughter.obj',$curloc
+$lvar['заголовок'] = "Мир Легенд"
+$lvar['исходник'] = "<p align=justify>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;«Мне везет! — бурно радуется ваш противник. — Сыграем ещё раз?»
+     Хотите "
+gosub 'get.daughter.obj',$curloc
 if arrsize('$temp_id')>0:
-	$result='<a l:href="#n_543">снова рискнуть</a><lock.put>'
+	$lvar['исходник'] += '<a l:href="#n_543">снова рискнуть</a><lock.put>'
 	$GAME_VALUE['obj.inGame']=$temp_id[0]
 else
-	$result='снова рискнуть'
+	$lvar['исходник'] += 'снова рискнуть'
 end
-killvar '$temp_id':2DIN>? Если считаете, что пора бросить эту затею (или вам больше нечего поставить на кон), то проститесь с партнером и <a l:href="#n_240">идите спать</a>.
+killvar '$temp_id'
+$lvar['исходник'] += "? Если считаете, что пора бросить эту затею (или вам больше нечего поставить на кон), то проститесь с партнером и [page=240]идите спать[/page].
      
-     <DIN3:gosub 'get.daughter.obj',$curloc
+     "
+gosub 'get.daughter.obj',$curloc
 if arrsize('$temp_id')=0:
-	$result=$func('base.texts','help.putobj')
+	$lvar['исходник'] += $func('base.texts','help.putobj')
 else
-	$result=''
+	$lvar['исходник'] += ''
 end
-killvar '$temp_id':3DIN></p>}   
+killvar '$temp_id'
+$lvar['исходник'] += "</p>"
 --- page.281 ---------------------------------
