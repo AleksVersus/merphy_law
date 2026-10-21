@@ -15,7 +15,7 @@ killvar '$temp_id':2DIN>. (Разумеется, вы не будете наст
 
      <DIN3:gosub 'get.daughter.obj',$curloc
 if arrsize('$temp_id')=0:
-	$result=$func('base.txt','help.putobj')
+	$result=$func('base.texts','help.putobj')
 else
 	$result=''
 end

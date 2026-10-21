@@ -17,7 +17,7 @@ end:1DIN> Если у вас на голове шлем, не вздумайте
 
 	<DIN3:gosub 'get.daughter.obj',$curloc
 if arrsize('$temp_id')=0:
-	$result=$func('base.txt','help.putobj')
+	$result=$func('base.texts','help.putobj')
 else
 	$result=''
 end
