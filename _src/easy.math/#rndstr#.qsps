@@ -27,9 +27,10 @@ if $args[1]<>'':
 	end
 end
 if $args[2]<>'': $args['symbols']+=$args[2]
+$result = ''
 :while
 if args[0]>0:
-	$result['rndstr']+=($mid($args['symbols'],rand(1,len($args['symbols'])),1))
+	$result+=($mid($args['symbols'],rand(1,len($args['symbols'])),1))
 	args[0]-=1
 	if args[0]>0: jump 'while'
 end

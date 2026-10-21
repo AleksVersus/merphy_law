@@ -19,7 +19,7 @@ if $args[0]='kill':
 	killvar '$num_luck'
 	killvar 'здесь_был'
 	killvar 'удача_восст'
-	killvar 'checkpoint'
+	checkpoint = 0 & killvar 'checkpoint'
 end
 if $GAME_INTERFACE['sets.refresh']='' or $args[0]<>'kill':
 	! основные настройки

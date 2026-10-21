@@ -1,5 +1,6 @@
 # #zero#
 args[0] = args[0]
+$result = ''
 if $args[1]='': $args[1]='0' else $args[1] = $args[1]
 :for
 if args[0]>0:

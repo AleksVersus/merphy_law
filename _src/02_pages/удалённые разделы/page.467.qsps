@@ -1,16 +1,16 @@
-# page.467
-!{ ЛОКАЦИЯ НЕ ИСПОЛЬЗУЕТСЯ 
-$lvar['заголовок']={467}
-if здесь_был[$curloc]=0:
-	cube=rand(1,6)
-end
-$lvar['исходник']="<p align=justify>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=#004400><i>Кубик-брошен, выпало <<cube>>, а значит вам <DIN1:if cube=1 or cube=4:
-	$result='[page=366]сюда[/page]'
-elseif cube=2 or cube=5:
-	$result='[page=290]сюда[/page]'
-else
-	$result='[page=178]сюда[/page]'
-end:1DIN>.</i></font></p>"
-}
-$lvar['исходник']="Если вы видите это, значит в игре допущена ошибка. Пожалуйста сохраните игру и вышлите файл сохранения на aleksversus@mail.ru"
---- page.467 ---------------------------------
+!@ # page.467
+!@ !{ ЛОКАЦИЯ НЕ ИСПОЛЬЗУЕТСЯ 
+!@ $lvar['заголовок']={467}
+!@ if здесь_был[$curloc]=0:
+!@ 	cube=rand(1,6)
+!@ end
+!@ $lvar['исходник']="<p align=justify>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=#004400><i>Кубик-брошен, выпало <<cube>>, а значит вам <DIN1:if cube=1 or cube=4:
+!@ 	$result='[page=366]сюда[/page]'
+!@ elseif cube=2 or cube=5:
+!@ 	$result='[page=290]сюда[/page]'
+!@ else
+!@ 	$result='[page=178]сюда[/page]'
+!@ end:1DIN>.</i></font></p>"
+!@ }
+!@ $lvar['исходник']="Если вы видите это, значит в игре допущена ошибка. Пожалуйста сохраните игру и вышлите файл сохранения на aleksversus@mail.ru"
+!@ --- page.467 ---------------------------------

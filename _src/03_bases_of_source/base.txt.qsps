@@ -730,13 +730,7 @@ if $args['add.colors and attributes']='used':
 end
 :зарядить_разрядить_бластер
 if $args[0]='blaster.incharge' or $args[0]='blaster.decharge':
-	if $AVS_PLAYERTYPE['size']="mini":
-		$args['c']='444499'
-		$args['c2']='666699'
-	else
-		$args['c']='000044'
-		$args['c2']='222244'
-	end
+	$args['c'] = $iif($AVS_PLAYERTYPE['size']="mini", '444499', '000044')
 	if $args[0]='blaster.incharge': $args['res']='<span style="color:#<<$args["c"]>>">Заряд бластера увеличивается: +<<args[1]>></span>'
 	if $args[0]='blaster.decharge': $args['res']='<span style="color:#<<$args["c"]>>">Заряд бластера уменьшается: <<args[1]>></span>'
 end
@@ -757,4 +751,4 @@ end
 !@ выход и возвращение результата
 :end_keep
 $result=$args['res']
---- base.txt ---------------------------------
+--- base.texts ---------------------------------

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<QGen-project version="4.2.0">
+<QGen-project version="4.3.0-b1">
   <Structure>
     <Location name="[launcher]"/>
     <Location name="[start]"/>
@@ -80,14 +80,14 @@
       <Location name="лист_вонючка"/>
       <Location name="world.new"/>
       <Location name="mv"/>
-      <Location name="war.txt"/>
     </Folder>
     <Folder name="базы">
-      <Location name="base.txt"/>
       <Location name="base.obj"/>
       <Location name="base.ratch"/>
       <Location name="base.body"/>
       <Location name="base.knew"/>
+      <Location name="war.text"/>
+      <Location name="base.texts"/>
     </Folder>
     <Folder name="работа с аохранениями">
       <Location name="save.checkpoint.load"/>

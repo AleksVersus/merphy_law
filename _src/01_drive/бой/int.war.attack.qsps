@@ -9,7 +9,7 @@ $GAME_WAR_LOG[]=$func('base.texts','war.round')	& !@ добавляем в ло�
 args['cube.hero']=rand(2,12)	& !@ выброшенные на кубиках очки
 args['might.hero']=fast['now']+args['cube.hero']+GAME_WAR['hero.fast']	& !@ мощность удара героя (сила атаки героя)
 !@ получаем список противников:
-killvar '$temp_id'
+$temp_id = '' & killvar '$temp_id' & !@ присваивание $temp_id костылит  
 gosub 'get.daughter.obj',$curloc,'<ratch>','$temp_id'
 !@ ----------------------------------------- циклом перебираем противников ----------------------------------------------------
 :for
@@ -28,24 +28,24 @@ if arrsize('$temp_id')>0:
 		if args['might.enemy']>args['might.hero']:
 		!@ если сила удара противника больше силы удара героя, наносим урон герою
 			gosub 'power',-GAME_WAR['ratch.blow.'+$temp_id[0]],'war'	& !@ уменьшаем здоровье герою
-			$GAME_WAR_LOG[]=$func('war.txt','eblow',$temp_id[0],$args['attacks.all'])	& !@ добавляем в лог надпись о нанесении урона
+			$GAME_WAR_LOG[]=$func('war.text','eblow',$temp_id[0],$args['attacks.all'])	& !@ добавляем в лог надпись о нанесении урона
 			!@ если есть какой-то навешанный на боёвку скрипт, запускаем
 			if instr($GAME_WAR['DIN.'+$curloc],'!war.powerdown!')<>0:
 				gosub 'run.dynamic.script','!war.powerdown!','//run.this.dynamic//',$GAME_WAR['DIN.'+$curloc]
 			end
 			!@ если здоровье героя упало ниже 1, игрок проиграл, добавляем надпись в лог
 			if power['now']<1:
-				$GAME_WAR_LOG[]=$func('war.txt','pdeath',$temp_id[0],$args['attacks.all'])
+				$GAME_WAR_LOG[]=$func('war.text','pdeath',$temp_id[0],$args['attacks.all'])
 			end
 		elseif args['might.enemy']<args['might.hero'] and $temp_id[0]=$args[0]:
 		!@ если сила удара героя больше силы противника, и это противник, выбранный героем для атаки
 			GAME_WAR['ratch.power.'+$temp_id[0]]-=2	& !@ уменьшаем здоровье противника
 			!@ добавляем в список параметров текущее здоровье противника:
 			$args['attacks.all']+=" [epower:<<GAME_WAR['ratch.power.'+$temp_id[0]]>>]"
-			$GAME_WAR_LOG[]=$func('war.txt','pblow',$temp_id[0],$args['attacks.all'])	& !@ вносим в лог текст
+			$GAME_WAR_LOG[]=$func('war.text','pblow',$temp_id[0],$args['attacks.all'])	& !@ вносим в лог текст
 			if GAME_WAR['ratch.power.'+$temp_id[0]]<1:
 			!@ если здоровье противника упало ниже единицы
-				$GAME_WAR_LOG[]=$func('war.txt','edeath',$temp_id[0],$args['attacks.all'])	& !@ вносим в лог текст
+				$GAME_WAR_LOG[]=$func('war.text','edeath',$temp_id[0],$args['attacks.all'])	& !@ вносим в лог текст
 				!@ отмечаем, что противник мёртв соответствующим текстом
 				$GAME_WAR['ratch.dead.'+$temp_id[0]]=$func('base.texts','ed',$func('get.tag.cont',$object_array[args['pit']],'sex'))
 				GAME_WAR['death.enemy']+=1	& !@ число убитых противников увеличивается
@@ -57,10 +57,10 @@ if arrsize('$temp_id')>0:
 			end
 		elseif args['might.enemy']<=args['might.hero'] and $temp_id[0]<>$args[0]:
 		!@ если сила удара героя не меньше силы противника, и противник не выделен
-			$GAME_WAR_LOG[]=$func('war.txt','pblock',$temp_id[0],$args['attacks.all'])	& !@ вносим текст в лог
+			$GAME_WAR_LOG[]=$func('war.text','pblock',$temp_id[0],$args['attacks.all'])	& !@ вносим текст в лог
 		else
 		!@ силы ударов совпадают, вносим соответствующий текст
-			$GAME_WAR_LOG[]=$func('war.txt','block',$temp_id[0],$args['attacks.all'])
+			$GAME_WAR_LOG[]=$func('war.text','block',$temp_id[0],$args['attacks.all'])
 		end
 	end
 	killvar '$temp_id',0	& !@ удаляем айди рассматриваемого противника из списка

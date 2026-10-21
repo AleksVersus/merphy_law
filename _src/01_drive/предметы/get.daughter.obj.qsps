@@ -24,6 +24,7 @@ if args['pos']<>-1 and args['i']<>args['pos']:
 		if $args[3]='' or $strfind($run_array[args['pos']],$args[3])<>'':
 			$args['gdo']='true'
 			dynamic "<<$args[2]>>[arrsize('<<$args[2]>>')]=$id_array[args[0]]",args['pos']
+			! setvar $args[2], $id_array[args['pos']], arrsize($args[2])
 		end
 	end
 	jump 'for'

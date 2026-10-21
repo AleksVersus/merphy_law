@@ -27,12 +27,12 @@ if instr($tvar['костыль.заголовок'],'[avs-money:')<>0:
 !@ если тип данной локации - локация торговли
 	!@ получаем список предметов, которые тут можно продать
 	$args['mass-sale']=$func('get.tag.cont',$tvar['костыль.заголовок'],'avs-obj')
-	if $args['mass-sale']!'':
+	if $args['mass-sale']<>'':
 	!@ если список указан, проверяем соответствует ли ему предмет:
 		if instr($args['mass-sale'],'['+$args['sw']+']')<>0:
 			$OOC_menu[]='Продать:menu.sale'
 		end
-		killvar '$temp_mass'
+		!@ killvar '$temp_mass'
 	elseif instr($args['obj'],'[quest]')=0:
 	!@ если особого списка нет, значит можно продать любой предмет
 		$OOC_menu[]='Продать:menu.sale'

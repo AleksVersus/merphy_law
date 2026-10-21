@@ -16,7 +16,7 @@ else
 	$result='[page=178]делаете шаг вперёд[/page]'
 end:1DIN>...
  </p>}
-$log_this+="tvar.qn.help:"+str(tvar['QN.help'])+"<br>"
+
 $GAME_VALUE['interface']='[game]'
 $GAME_INTERFACE['refresh']='страница.сброс'
 $GAME_INTERFACE['back.href']='true'
