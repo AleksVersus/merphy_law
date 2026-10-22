@@ -45,7 +45,7 @@ end
 if $GAME_INTERFACE['back.href']='true':
 	!@ кнопка, возвращающая назад включена
 	$args['hr.b']='<a href="exec:gosub ''back.varriors''" class="plain" id="avs_back_btn">'
-	$args['hr.b.n']='Назад'
+	$args['hr.b.n'] = $iif($AVS_PLAYERTYPE['type'] = 'qspnext', '◀','Назад')
 	$args['/hr.b']="</a>"
 	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['back.href']=$args['hr.b']+$args['hr.b.n']+$args['/hr.b']
@@ -74,13 +74,18 @@ if instr($args[3],'[game]')=1:
 		$args['stat']+='</td></tr>'
 	$args['stat']+='</table>'
 	:предметы
-	!@ список предметов тоже генерируем в виде таблицы:
-	$args['objs.scroll'] = $func('base.texts','table.blast')
-	!@ для классического плеера заворачиваем список в дополнительную таблицу
-	if $AVS_PLAYERTYPE['html_support']='qspider':
-		$args['objs.scroll']=$args['objs.scroll']
-	else
-		$args['objs.scroll']="<table cellpadding=0 cellspacing=0><tr><td>"+$args['objs.scroll']+"</td></tr></table>"
+	if $AVS_PLAYERTYPE['type'] = 'qspnext':
+		!@ QSPNext выводит предметы в виде списка предметов. Костыль:
+		gosub 'int.items.qspnext'
+	else:
+		!@ список предметов тоже генерируем в виде таблицы:
+		$args['objs.scroll'] = $func('base.texts','table.blast')
+		!@ для классического плеера заворачиваем список в дополнительную таблицу
+		if $AVS_PLAYERTYPE['html_support']='qspider':
+			$args['objs.scroll']=$args['objs.scroll']
+		else
+			$args['objs.scroll']="<table cellpadding=0 cellspacing=0><tr><td>"+$args['objs.scroll']+"</td></tr></table>"
+		end
 	end
 	:дополнительные_тексты
 	!@ дополнительные тексты

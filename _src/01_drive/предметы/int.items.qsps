@@ -1,0 +1,83 @@
+QSP-Game Воспроизведение предметов в окне предметов
+# int.items.qspnext
+killobj
+killvar '$temp_id'	& !@ на всякий случай удаляем временный массив
+gosub 'get.daughter.obj','INVENTORY','','$temp_id'	& !@ получаем список предметов (вернее их идентификаторов)
+:blast
+if arrsize('$temp_id')>0:
+    !@ строка объекта часть тела в таблице данных:
+    args['pos.body']=arrpos('$id_array',$temp_id[0])
+    !@ строка дочернего объекта в таблице данных
+    args['pos.obj']=arrpos('$position_array',$temp_id[0])
+    $args['hide']='false'	& !@ нужно ли скрыть предмет, на начальном этапе - нет
+    if args['pos.obj']<>-1:
+        !@ если дочерний объект есть, пытаемся вывести его
+        if instr($object_array[args['pos.obj']],'[hide.inInv]')<>0:
+            $args['hide']='true'	& !@ в свойствах предмета прописано скрытие в инвентаре, нет смысла считать всякие плюхи
+        else
+            !@ если предмет не скрыт, считаем плюхи
+            if instr($object_array[args['pos.obj']],'[quest]')<>0:
+            !@ подсветка квестового предмета
+                $args['color']='114444'
+                $args['attrib']='<b>'
+                $args['/attrib']='</b>'
+                $args['bgcolor']='fcfcfc'
+            elseif instr($object_array[args['pos.body']],'[:место_в_рюкзаке:]')=0:
+            !@ подсветка активного предмета
+                $args['color']='008888'
+                $args['attrib']='<b>'
+                $args['/attrib']='</b>'
+                $args['bgcolor']='fcfcfc'
+            else
+            !@ подсветка неактивного предмета
+                $args['color']='008888'
+                $args['attrib']=''
+                $args['/attrib']=''
+                $args['bgcolor']='fcfcfc'
+            end
+            !@ генерируем ссылку на обработчик предмета
+            $args['name']='<avs-source src="[oid:<<$id_array[args["pos.obj"]]>>:oid]">'
+            $args['name']+='<font color=#'+$args['color']+'>'+$args['attrib']
+            $args['name']+=$func('get.word.padez',$func('get.tag.cont',$object_array[args['pos.obj']],'name'),'И')
+            $args['name']+=$args['/attrib']+'</font>'
+            args['charge']=charge_array[args['pos.obj']]	& !@ текущий заряд
+            args['maxcharge']=func('get.tag.num.val',$object_array[args['pos.obj']],'maxchrg')	& !@ получаем максимальный уровень заряда
+            if instr($object_array[args['pos.obj']],'[maxchrg:')<>0 and args['maxcharge']=0:
+                !@ если максимальный уровень не получен, но в признаках был определён
+                $args['ch']='<span style="color:#000000;">'+$str(args['charge'])+'<span style="font-weight:bold;font-size:large">/∞</span></span>'
+            elseif instr($object_array[args['pos.obj']],'[maxchrg:')<>0 and args['maxcharge']<>0:
+                !@ если максимальный уровень получен
+                $args['ch']='<span style="color:#000000;">'+$str(args['charge'])+'<span style="font-weight:bold;">/'+$str(args['maxcharge'])+'</span></span>'
+            else
+                $args['ch']='&nbsp;'
+            end
+        end
+    else
+        !@ если дочернего объекта нет, можно вывести часть тела или рюкзака
+        if instr($object_array[args['pos.body']],'[hide.inInv]')<>0:
+            !@ если часть тела скрыта в инвентаре, не высчитываем плюшки
+            $args['hide']='true'
+        else
+            !@ высчитываем плюшки
+            $args['color']='888888'
+            $args['attrib']=''
+            $args['/attrib']=''
+            $args['name']='<font color=#'+$args['color']+'>'+$args['attrib']
+            $args['name']+=$func('get.tag.cont',$object_array[args['pos.body']],'name')
+            $args['name']+=$args['/attrib']+'</font>'
+            $args['bgcolor']='fcfcfc'
+            $args['ch']='&nbsp;'
+        end
+    end
+    if $args['hide']='false':
+        !@ если предмет не скрыт, добавляем его
+        if $args['ch'] <> '&nbsp;':
+            addobj $args['name']+'    '+$args['ch']
+        else:
+            addobj $args['name']
+        end
+    end
+    killvar '$temp_id',0	& !@ удаляем идентификатор предмета из списка
+    jump 'blast'
+end
+--- int.items ---

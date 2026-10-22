@@ -1,0 +1,6 @@
+# onObjSel
+$args['oid'] = $func('get.tag.cont', $selobj, 'oid')
+unselect
+
+if $args['oid']<>'': gosub 'onObjClick', $args['oid']
+--- onObjSel ---
