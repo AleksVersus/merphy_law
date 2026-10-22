@@ -43,6 +43,8 @@ QSP-Game генерируем базовые объекты (предметы)
 	gosub 'crt.obj','место_в_рюкзаке','','<body>',0,1,'INVENTORY'
 	gosub 'crt.obj','место_в_рюкзаке','','<body>',0,1,'INVENTORY'
 	gosub 'crt.obj','место_в_рюкзаке','','<body>',0,1,'INVENTORY'
+
+	GAME_VALUE['bag.active'] = 1 & !@ рюкзак у героя
 	!@ браслет на запястье:
 	gosub 'crt.obj','ворот','','[quest]',0,1,$args['запястье']
 	!@ палаш на поясе:
@@ -52,4 +54,6 @@ QSP-Game генерируем базовые объекты (предметы)
 	!@ инициализируем переменные. Хак для 5.9.6:
 	GAME_VALUE['game.cube.party'] = 0
 	GAME_VALUE['page.228'] = 0
+	showinput 1	& !@ включаем строку ввода для отладки
+	if $AVS_PLAYERTYPE['type'] = 'qspnext': $onobjsel = 'onObjSel'
 --- set.presets ---------------------------------

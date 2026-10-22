@@ -1,5 +1,6 @@
 QSP-Game костыль добавления листа-вонючки
 # лист_вонючка
+if GAME_VALUE['bag.active']=0: $print[]=$func('base.texts','f','нет_рюкзака') & jump 'ext'
 $args['empty']=$func('prv.bag','','','место_в_рюкзаке')
 $args['dyn']={if $args[0]='!use.on!':
 	gosub 'del.obj.id',$args[1]

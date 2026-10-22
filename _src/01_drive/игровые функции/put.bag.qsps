@@ -16,6 +16,7 @@ if args[9]<>-1:
 end
 !@ gosub 'crt.obj','','','<obj> [hide.onloc]'	& !@ создаём скрытый на локации предмет (не помню зачем)
 $print[]=$func('base.texts','bag.drop')	& !@ добавить текст о выбрасывании рюкзака в пул
+GAME_VALUE['bag.active'] = 0
 if $args[1]<>'//nope.goto//':
 	!@ если не запрещено, перезаходим на локацию
 	time['goto']=1

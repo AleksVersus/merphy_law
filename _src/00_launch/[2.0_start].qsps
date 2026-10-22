@@ -91,7 +91,6 @@ else
 end
 !@ выводим обложку:
 *p $args['screen']
-showinput 1	& !@ включаем строку ввода для отладки
-if $AVS_PLAYERTYPE['type']: $onobjsel = 'onObjSel'
+
 ! ВСЕМУ СООБЩЕСТВУ QSP, людям из quest-book, и просто проходившим мимо СПАСИБО !
 --- [start] ---------------------------------

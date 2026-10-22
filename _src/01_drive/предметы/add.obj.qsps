@@ -45,10 +45,14 @@ if $args[1] = '':
 	$args[1] = $func('prv.bag','','',$args['pos'])	& !@ ищем пустое место в рюкзаке (например, место для фляжки на поясе)
 	if $GAME_VALUE['endlessbag']='true' and $args[1]='':
 	!@ предназначено для отладчика! Если включен режим бесконечного рюкзака, создаём новую пустую ячейку
-		$args[1] = $func('crt.obj','место_в_рюкзаке','','<body>',0,1,'INVENTORY')
+		$args[1] = $func('crt.obj',$args['pos'],'','<body>',0,1,'INVENTORY')
 	end
 	!@ если нет пустой ячейки, значит предмет поднять нельзя, добавляем надпись, что предмет поднять нельзя и пропускаем остальное
-	if $args[1] = '': $print[] = $func('base.texts','f',$args['pos']) & jump 'ext'
+	if $args['pos'] = 'место_в_рюкзаке' and GAME_VALUE['bag.active'] = 0:
+		$print[] = $func('base.texts','f','нет_рюкзака') & jump 'ext'
+	elseif $args[1] = '':
+		$print[] = $func('base.texts','f',$args['pos']) & jump 'ext'
+	end
 end
 !@ определяем не присутствует ли в данной позиции предмет
 args['posobjinpos']=arrpos('$position_array',$args[1])

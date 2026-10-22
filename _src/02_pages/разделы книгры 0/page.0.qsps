@@ -122,16 +122,16 @@ $GAME_VALUE['фиксация страницы']='page7':9DIN>нём могли 
 Наконец сборы окончены — [page=1]пора стартовать[/page]. 
  </p>}
 end
-$lvar['колонтитул']+={-<br>-<a href="exec:goto $curloc,'page7'" class="plain">пролистать</a>}
+$lvar['колонтитул']+="-<br>-<a href=""exec:goto $curloc,'page7'"" class=""plain"">пролистать</a>"
 if здесь_был[$curloc]=0:
-$args['динамический код предметов']={![page0.dErT]
+$args['динамический код предметов'] = {![page0.dErT]
 if $args[0]='!addobj.pos!' and $curloc='page.0':
-$GAME_VALUE['interface']='[game]'
-$GAME_INTERFACE['refresh']='страница.сброс'
-	! ищем идентификатор сумки с предметом, содержащим текущий код.
+	$GAME_VALUE['interface']='[game]'
+	$GAME_INTERFACE['refresh']='страница.сброс'
+	!@ ищем идентификатор сумки с предметом, содержащим текущий код.
 	$args['id']=$func('prv.bag','!'+'\['+'page0\.'+'dErT\]','regrun')
-	! подменяем позицию
-	if $args['id']!'':
+	!@ подменяем позицию
+	if $args['id']<>'':
 		$result=$args['id']
 		exit
 	end
