@@ -175,29 +175,56 @@ end
 !@ непосредственно генерим таблицу
 if $AVS_PLAYERTYPE['size']<>"mini":
 	if $AVS_PLAYERTYPE['html_support'] = '':
-	!@ для классического плеера генерируем полную таблицу
-		$args['result']='<center><table cellpadding=10 border=0 width=100%>'
-			if $args['head']<>'':
-				!@ заголовок существует
-				$args['result']+='<tr name=head>'
-					$args['result']+='<td width=25% align=right>'+$args['back.href']+'</td>'
-					$args['result']+='<td <<$args["width.center"]>> align=center>'+$args['result.head']+'</td>'
-					$args['result']+='<td <<$args["width.right"]>> >'+$args['nextpage']+'</td>'
+		if $AVS_PLAYERTYPE['type'] = 'qspnext':
+		!@ для QSPNext генерируем таблицу как для классического плеера, но боковые колонки пустые и занимают по 5% ширины
+			$args['result']='<center><table cellpadding=10 border=0 width=100%>'
+				if $args['head']<>'':
+					!@ заголовок существует
+					$args['result']+='<tr name=head>'
+						$args['result']+='<td width=5% align=right>'+$args['back.href']+'</td>'
+						$args['result']+='<td width=90% align=center>'+$args['result.head']+'</td>'
+						$args['result']+='<td width=5%>'+$args['nextpage']+'</td>'
+					$args['result']+='</tr>'
+				end
+				$args['result']+='<tr name=centr>'
+					!@ боковые колонки пустые: статы, предметы и дополнительные тексты QSPNext выводит в собственных окнах
+					$args['result']+='<td valign=top align=right width=5%>&nbsp;</td>'
+					$args['result']+='<td width=90% valign=top>'+$args[0]+'</td>'
+					$args['result']+='<td valign=top align=left width=5%>&nbsp;</td>'
 				$args['result']+='</tr>'
-			end
-			$args['result']+='<tr name=centr>'
-				$args['result']+='<td valign=top align=right width=25%>'+$args['stat']+'</td>'
-				$args['result']+='<td <<$args["width.center"]>> valign=top>'+$args[0]+'</td>'
-				$args['result']+='<td <<$args["width.right"]>> valign=top align=left>'+$args['objs_n_info']+'</td>'
-			$args['result']+='</tr>'
-			if $args['colontitle']<>'':
-				$args['result']+='<tr>'
-					$args['result']+='<td valign=top align=right width=25%>&nbsp;</td>'
-					$args['result']+='<td <<$args["width.center"]>> name=btm valign=middle align=center>'+$args['colontitle']+'</td>'
-					$args['result']+='<td <<$args["width.right"]>> valign=top align=left>&nbsp;</td>'
+				if $args['colontitle']<>'':
+					$args['result']+='<tr>'
+						$args['result']+='<td valign=top align=right width=5%>&nbsp;</td>'
+						$args['result']+='<td width=90% name=btm valign=middle align=center>'+$args['colontitle']+'</td>'
+						$args['result']+='<td valign=top align=left width=5%>&nbsp;</td>'
+					$args['result']+='</tr>'
+				end
+			$args['result']+='</table></center>'
+		else
+		!@ для классического плеера генерируем полную таблицу
+			$args['result']='<center><table cellpadding=10 border=0 width=100%>'
+				if $args['head']<>'':
+					!@ заголовок существует
+					$args['result']+='<tr name=head>'
+						$args['result']+='<td width=25% align=right>'+$args['back.href']+'</td>'
+						$args['result']+='<td <<$args["width.center"]>> align=center>'+$args['result.head']+'</td>'
+						$args['result']+='<td <<$args["width.right"]>> >'+$args['nextpage']+'</td>'
+					$args['result']+='</tr>'
+				end
+				$args['result']+='<tr name=centr>'
+					$args['result']+='<td valign=top align=right width=25%>'+$args['stat']+'</td>'
+					$args['result']+='<td <<$args["width.center"]>> valign=top>'+$args[0]+'</td>'
+					$args['result']+='<td <<$args["width.right"]>> valign=top align=left>'+$args['objs_n_info']+'</td>'
 				$args['result']+='</tr>'
-			end
-		$args['result']+='</table></center>'
+				if $args['colontitle']<>'':
+					$args['result']+='<tr>'
+						$args['result']+='<td valign=top align=right width=25%>&nbsp;</td>'
+						$args['result']+='<td <<$args["width.center"]>> name=btm valign=middle align=center>'+$args['colontitle']+'</td>'
+						$args['result']+='<td <<$args["width.right"]>> valign=top align=left>&nbsp;</td>'
+					$args['result']+='</tr>'
+				end
+			$args['result']+='</table></center>'
+		end
 	elseif $AVS_PLAYERTYPE['html_support'] = "qspider":
 	!@ если qSpider, пробуем генерить дивами
 		!@ левая колонка
@@ -336,3 +363,4 @@ killvar '$print'
 killvar '$print_down'
 $result=$args['result']
 --- int.screen ---------------------------------
+
