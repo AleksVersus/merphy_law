@@ -8,21 +8,12 @@ QSP-Game ! локация, выписывающая готовый текст в
 
 # int.screen
 args[9]=args[9]	& !@ инициализируем аргументы
-:заголовок
-if $args[2]='' and instr($curloc,'page')<>0:
-	!@ если заголовок не передавали, то он извлекается из идентификатора локации
-	$args['head']=$strfind($curloc,'\d+')
-else
-	!@ в противном случае заголовком становится переданный заголовок
-	$args['head']=$args[2]
-end
-if $args[4]='' and instr($curloc,'page')<>0:
-	!@ если колонтитул не передан, извлекаем его из идентификатора локации
-	$args['colontitle']=$strfind($curloc,'\d+')
-else
-	!@ в противном случае колонтитул берётся из переданного аргумента
-	$args['colontitle']=$args[4]
-end
+!@ ==================================== ЗАГОЛОВОК И КОЛОНТИТУЛ ====================================
+!@ если заголовок не передавали, то он извлекается из идентификатора локации
+$args['head'] = $iif($args[2]='' and instr($curloc,'page')<>0, $strfind($curloc,'\d+'), $args[2])
+!@ если колонтитул не передан, извлекаем его из идентификатора локации
+$args['colontitle'] = $iif($args[4]='' and instr($curloc,'page')<>0, $strfind($curloc,'\d+'), $args[4])
+
 if $args['colontitle']<>'' and $args['colontitle']<>'nope':
 	!@ если колонтитул получен, переформируем его
 	$args['colontitle']='-'+$args['colontitle']+'-'
@@ -84,7 +75,7 @@ if instr($args[3],'[game]')=1:
 	$args['stat']+='</table>'
 	:предметы
 	!@ список предметов тоже генерируем в виде таблицы:
-	$args['objs.scroll']=$func('base.texts','table.blast')
+	$args['objs.scroll'] = $func('base.texts','table.blast')
 	!@ для классического плеера заворачиваем список в дополнительную таблицу
 	if $AVS_PLAYERTYPE['html_support']='qspider':
 		$args['objs.scroll']=$args['objs.scroll']
@@ -120,7 +111,7 @@ if instr($args[3],'[game]')=1:
 		!@ для мобильной версии табличка растягивается на ширину страницы
 		$args['objs_n_info']='<table width=100% cellpadding=0 cellspacing=0 border=0>'
 	elseif $AVS_PLAYERTYPE['html_support'] = 'qspider':
-		!@ для навигатора и паука поведение таблички определяется стилями CSS
+		!@ для qspider поведение таблички определяется стилями CSS
 		$args['objs_n_info']='<table class="avs_game_objs_short">'
 	else
 		!@ для классического плеера ширина таблички равна 280 пикс.
@@ -208,7 +199,7 @@ if $AVS_PLAYERTYPE['size']<>"mini":
 			end
 		$args['result']+='</table></center>'
 	elseif $AVS_PLAYERTYPE['html_support'] = "qspider":
-	!@ если Quest Navigator или qSpider, пробуем генерить дивами
+	!@ если qSpider, пробуем генерить дивами
 		!@ левая колонка
 		if $args['stat']<>'' or $args['back.href']<>'':
 			$args['result']='<div id="avs_game_left_column">'

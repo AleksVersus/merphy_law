@@ -16,7 +16,7 @@ elseif $args[0] = 'страница.сброс':
 	bcolor = rgb(255,255,255)		&	!@	настраиваем текущий цвет фона - по умолчанию
 	lcolor = rgb(0,136,136)		&	!@	настраиваем текущий цвет ссылок
 	$fname = 'Consolas'		&	!@	устанавливаем шрифт
-	if $AVS_PLAYERTYPE['type'] = 'qspnext':
+	if $AVS_PLAYERTYPE['type'] = 'qspnext' and $AVS_PLAYERTYPE['size'] <> 'mini':
 		!@ qspnext работает с окнами доп описания и предметов
 		showacts 0
 		showobjs 1
@@ -27,5 +27,6 @@ else:
 	showobjs 0	&	!@ скрываем вещи
 	showstat 0	&	!@ скрываем дополнительное описание
 end
+if $AVS_PLAYERTYPE['size'] = 'mini': showinput 0
 $GAME_INTERFACE['refresh']=''	& !@ когда значение этой переменной обнулено, настройки обновить не получится
 --- set.Screen ---------------------------------
