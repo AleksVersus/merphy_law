@@ -104,10 +104,14 @@ if instr($args[3],'[game]')=1:
 		else
 			$args['r']='<font color=#000088>'+$args['r']+'</font>'
 		end
-		$args['info.scroll']='<table cellspacing=0 width=100%>'
-			$args['info.scroll']+='<tr name=printsp bgcolor=#fdfdff><td align=left>&nbsp;</td></tr>'
-			$args['info.scroll']+='<tr name=printpr bgcolor=#fdfdff><td align=left>'+$args['r']+'</td></tr>'
-		$args['info.scroll']+='</table>'
+		if $AVS_PLAYERTYPE['type'] <> 'qspnext':
+			$args['info.scroll']='<table cellspacing=0 width=100%>'
+				$args['info.scroll']+='<tr name=printsp bgcolor=#fdfdff><td align=left>&nbsp;</td></tr>'
+				$args['info.scroll']+='<tr name=printpr bgcolor=#fdfdff><td align=left>'+$args['r']+'</td></tr>'
+			$args['info.scroll']+='</table>'
+		else:
+			$args['info.scroll'] = $args['r']
+		end
 	else
 		$args['info.scroll']='&nbsp;'
 	end
@@ -207,8 +211,13 @@ if $AVS_PLAYERTYPE['size']<>"mini":
 			$args['result']+='</table></center>'
 			!@ только для QSP-Next информация выводится в доп описание.
 			clr
-			pl $args['info.scroll']
-			pl $args['stat']
+			if $args['info.scroll']<>'' and $args['info.scroll']<>'&nbsp;':
+				!@ дополнительные тексты выводятся без статов; крестик перерисовывает экран, $print к тому моменту уже убит -> снова видны статы
+				$args['info.close']='<a href="exec:gs ''true.goto''" class="plain"><font color=#880000 size=4><b>×</b></font></a>'
+				pl '<table width=100%><tr><td>'+$args['info.scroll']+'</td><td width=5% valign=top>'+$args['info.close']+'</td></tr></table>'
+			else
+				pl $args['stat']
+			end
 		else
 		!@ для классического плеера генерируем полную таблицу
 			$args['result']='<center><table cellpadding=10 border=0 width=100%>'
