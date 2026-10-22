@@ -126,8 +126,8 @@ if $args[0]='table.numbers':
 	if $AVS_PLAYERTYPE['size']="mini":
 		!@ в любом плеере mini таблица растягивается на 100% экрана
 			$args['res']='<table width=100% cellspacing=0>'
-	elseif $AVS_PLAYERTYPE['type']="QN" or $AVS_PLAYERTYPE['type']="qspider":
-		!@ в навигаторе и qSpider поведение таблицы определяется стилями
+	elseif $AVS_PLAYERTYPE['type']="qspider":
+		!@ в qSpider поведение таблицы определяется стилями
 		$args['res']='<table cellspacing=0 class="avs_game_stat_table">'
 	else
 		!@ в классическом плеере табличка всегда размером в 280 пикселей
