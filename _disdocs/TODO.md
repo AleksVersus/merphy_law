@@ -1,12 +1,13 @@
 # TODO
 
+## Общее
+
 - [ ] **Восстановить работу с окнами дополнительного описания и предметов для исключительного случая плеера QSPNext.**
 
-
-# Releases
+## Releases
 
 - Для релиза нужно архивировать следующие файлы и папки в папке `game`:
-	- skins
-	- game.cfg
-	- merphy_law.qproj
-	- merphy_law.qsp
+  - skins
+  - game.cfg
+  - merphy_law.qproj
+  - merphy_law.qsp
