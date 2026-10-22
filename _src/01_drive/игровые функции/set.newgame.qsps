@@ -4,6 +4,7 @@ QSP-Game локация выставляет настройки по умолч�
 # set.newgame
 $args[9]=$args[9]
 if $args[0]='kill':
+	killobj
 	killvar '$survived_location'
 	killvar '$survived_varriors'
 	!@ killvar '$GAME_INTERFACE'
@@ -22,11 +23,11 @@ if $args[0]='kill':
 	checkpoint = 0 & killvar 'checkpoint'
 end
 if $GAME_INTERFACE['sets.refresh']='' or $args[0]<>'kill':
-	! основные настройки
-	if $args[0]='kill' or $args[0]='refresh': 		$GAME_INTERFACE['refresh']=''			&	!	принудительно обновить настройки интерфейса страница.сброс - сбросить к стандартным настройкам плеера
-	if $args[0]='kill' or $args[0]='back.href':		$GAME_INTERFACE['back.href']='false'	&	!	кнопка отката: false - не отображается true - отображается
-	if $args[0]='kill' or $args[0]='next.href': 	$GAME_INTERFACE['next.href']='false'	&	!	кнопка пролистывания: false - на экране отображаются кнопки настроек true - отображается кнопка пролистывания
-	! тонкие настройки
+	!@ основные настройки
+	if $args[0]='kill' or $args[0]='refresh': 		$GAME_INTERFACE['refresh']=''			&	!@	принудительно обновить настройки интерфейса страница.сброс - сбросить к стандартным настройкам плеера
+	if $args[0]='kill' or $args[0]='back.href':		$GAME_INTERFACE['back.href']='false'	&	!@	кнопка отката: false - не отображается true - отображается
+	if $args[0]='kill' or $args[0]='next.href': 	$GAME_INTERFACE['next.href']='false'	&	!@	кнопка пролистывания: false - на экране отображаются кнопки настроек true - отображается кнопка пролистывания
+	!@ тонкие настройки
 end
 
 --- set.newgame ---------------------------------

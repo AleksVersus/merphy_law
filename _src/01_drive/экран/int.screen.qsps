@@ -205,6 +205,10 @@ if $AVS_PLAYERTYPE['size']<>"mini":
 					$args['result']+='</tr>'
 				end
 			$args['result']+='</table></center>'
+			!@ только для QSP-Next информация выводится в доп описание.
+			clr
+			pl $args['info.scroll']
+			pl $args['stat']
 		else
 		!@ для классического плеера генерируем полную таблицу
 			$args['result']='<center><table cellpadding=10 border=0 width=100%>'
