@@ -159,8 +159,9 @@ $args['li.10.5']='Окончательно удалены неиспользуе
 				$args['screen']+='<ul style="text-align:left;">'
 				args['i']=1
 				:for_dot
-				if $args['li.0<<args["j"]>>.<<args["i"]>>']<>'':
-					$args['screen']+='<li>'+$args['li.0<<args["j"]>>.<<args["i"]>>']+'</li>'
+				$args['number.li'] = $iif(len($str(args["j"]))>1, $str(args["j"]), '0<<args["j"]>>')
+				if $args['li.<<$args["number.li"]>>.<<args["i"]>>']<>'':
+					$args['screen']+='<li>'+$args['li.<<$args["number.li"]>>.<<args["i"]>>']+'</li>'
 					args['i']+=1
 					jump 'for_dot'
 				end
