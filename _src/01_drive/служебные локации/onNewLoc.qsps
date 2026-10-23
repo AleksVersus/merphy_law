@@ -25,9 +25,9 @@
 !@
 if val($strfind($curloc,'\d+'))>0 and strcomp($curloc,'page\.\d+')<>0:
 	!@ если мы имеем дело с локацией, являющейся именно страницей книги-игры
-	if $AVS_PLAYERTYPE['type']="qspider" and $GAME_HELP['QN']='':
+	if $AVS_PLAYERTYPE['type']="qspider" and $GAME_HELP['SAVE-HINT']='':
 		!@ для Quest Navigator выводим подсказку по сохранениям
-		$GAME_HELP['QN']='yep'
+		$GAME_HELP['SAVE-HINT']='yep'
 		$print[] = '<span style="color:#880000;">Внимание!!! Контрольные точки сохраняются в первом слоте, быстрые сохранения - во втором.</span> <br>'
 	end
 end
@@ -70,7 +70,7 @@ if instr($lvar['заголовок'],'[avs-game:')<>0:
 	!@ если это локация с мини-игрой, получаем ссылку, разрешающую или прерывающую миниигру
 	$args['на экран']+=$func('int.DIN',$func('base.texts','game.enemy',$func('get.tag.cont',$lvar['заголовок'],'avs-game')))
 end
-$args['на экран']+=$args['controlJS'] & !@ кусок костыля для прокрутки текста для Quest Navigator
+
 *clr	& !@ очищаем окно основного описания
 if $GAME_INTERFACE['refresh']<>'': gosub 'set.Screen',$GAME_INTERFACE['refresh']	& !@ если проставились настройки, обновляем экран
 $args['PRINTSCREEN']=$func('int.screen',$args['на экран'],$args['список предметов'],$lvar['заголовок'],$GAME_VALUE['interface'],$lvar['колонтитул'])	& !@ скармливаем интерпретатору экрана все данные для формирования выводимого на экран текста

@@ -20,7 +20,7 @@ $args['link.release']='<a href="exec:goto ''[1.0_about]''" id="about_release" cl
 if $AVS_PLAYERTYPE['size']<>"mini":
 	!@ только для десктопных версий плееров пишем собственные схемы вывода
 	if $AVS_PLAYERTYPE['html_support']="qspider":
-		!@ для Quest Navigator и qSpider
+		!@ для qSpider
 		$args['screen']+='<div class="main_cover">'
 			$args['screen']+='<span class="author">'+$args['author']+'</span><br>'
 			$args['screen']+='<span class="heading">'+$args['head.floor1']+'</span><br>'

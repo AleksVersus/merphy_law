@@ -324,7 +324,7 @@ else
 			end
 		end
 	elseif $AVS_PLAYERTYPE['html_support'] = "qspider":
-		!@ для плееров версии quest navigator и qSpider
+		!@ для плееров версии qSpider
 		if arrsize('$print')>0:
 			!@ описательные моменты выводятся поверх всех прочих текстов
 			$args['result']+=$args['info.scroll']

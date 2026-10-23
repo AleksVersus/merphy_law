@@ -91,7 +91,7 @@ $args['p7']='Приятной игры!'
 $args['p8']='С уважением,<br>Aleks Versus'
 !@ if $AVS_PLAYERTYPE['size']<>"mini":
 	if $AVS_PLAYERTYPE['html_support'] = 'qspider':
-		!@ собираем текстовки для quest navigator и qspider
+		!@ собираем текстовки для qspider
 		if $AVS_PLAYERTYPE['size']<>"mini":
 			$args["styles.1"]='style="display:flex;align-justify:flex-start;"'
 			$args["styles.2"]=' style="font-size:0.9em;position: sticky; top: 0;"'
