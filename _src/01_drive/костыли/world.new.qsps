@@ -12,36 +12,26 @@ if arrsize('$temp_id')>0:
 	killvar '$temp_id',0
 	jump 'for_gate'
 end
-!!! TODO: ВЫГЛЯДИТ слишком сложно. Возможно стоит переделать.
+
 killvar '$temp_id'
 $new_world[]='178'
 $new_world[]='290'
 $new_world[]='345'
 $new_world[]='366'
-if args['res.page']=242 or args['res.page']=263 or args['res.page']=318 or args['res.page']=404:
+$args['page.in'] = "[<<args['res.page']>>]"
+if instr('[242][263][318][404] [290][345][366][393]', $args['page.in']) <> 0:
 	killvar '$new_world',arrpos('$new_world','178')
 end
-if args['res.page']=290 or args['res.page']=345 or args['res.page']=366 or args['res.page']=393:
-	killvar '$new_world',arrpos('$new_world','178')
-end
-if args['res.page']=242 or args['res.page']=130 or args['res.page']=75 or args['res.page']=641:
+if instr('[242][130][75][641] [290][345][178][393]', $args['page.in']) <> 0:
 	killvar '$new_world',arrpos('$new_world','366')
 end
-if args['res.page']=290 or args['res.page']=345 or args['res.page']=178 or args['res.page']=393:
-	killvar '$new_world',arrpos('$new_world','366')
-end
-if args['res.page']=151 or args['res.page']=318 or args['res.page']=130 or args['res.page']=598:
+if instr('[151][318][130][598] [366][345][178][393]', $args['page.in']) <> 0:
 	killvar '$new_world',arrpos('$new_world','290')
 end
-if args['res.page']=366 or args['res.page']=345 or args['res.page']=178 or args['res.page']=393:
-	killvar '$new_world',arrpos('$new_world','290')
-end
-if args['res.page']=151 or args['res.page']=263 or args['res.page']=75 or args['res.page']=467:
+if instr('[151][263][75][467] [290][366][178][393]', $args['page.in']) <> 0:
 	killvar '$new_world',arrpos('$new_world','345')
 end
-if args['res.page']=290 or args['res.page']=366 or args['res.page']=178 or args['res.page']=393:
-	killvar '$new_world',arrpos('$new_world','345')
-end
+:ext
 if arrsize('$new_world')<>0:
 	$result = $new_world[rand(0,arrsize('$new_world')-1)]
 else

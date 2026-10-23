@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<QGen-project version="4.3.0-b1">
+<QGen-project version="4.0.0 beta 1">
   <Structure>
     <Location name="[launcher]"/>
     <Location name="[start]"/>
@@ -7,6 +7,7 @@
     <Location name="[1.1_gameplay]"/>
     <Folder name="служебные локации">
       <Location name="onNewLoc"/>
+      <Location name="onObjSel"/>
       <Location name="onObjClick"/>
       <Location name="onGameSave"/>
       <Location name="onGameLoad"/>
@@ -42,6 +43,7 @@
       <Location name="add.obj"/>
       <Location name="put.obj"/>
       <Location name="minus.obj"/>
+      <Location name="int.items.qspnext"/>
     </Folder>
     <Folder name="предметы.меню">
       <Location name="menu.info"/>

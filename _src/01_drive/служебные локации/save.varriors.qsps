@@ -41,6 +41,7 @@ $GAME_VALUE['фиксация страницы']='<<$GAME_VALUE['фиксаци�
 GAME_VALUE['war.log']=<<GAME_VALUE['war.log']>>
 GAME_VALUE['game.cube.party']=<<GAME_VALUE['game.cube.party']>>
 GAME_VALUE['page.228']=<<GAME_VALUE['page.228']>>
+GAME_VALUE['bag.active']=<<GAME_VALUE['bag.active']>>
 fast['now']=<<fast['now']>> & fast['start']=<<fast['start']>>
 social['now']=<<social['now']>> & social['start']=<<social['start']>>
 power['now']=<<power['now']>> & power['start']=<<power['start']>>
